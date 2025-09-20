@@ -742,8 +742,9 @@ def admin_dashboard():
             strand_distribution[strand] = round((row['count'] / total_students) * 100, 2)
 
     users = db.session.execute(
-        text("SELECT * FROM users WHERE role = 'student")
-    ).mappings().all()
+    text("SELECT * FROM users WHERE role = 'student'")
+).mappings().all()
+
 
     return render_template("admin_dashboard.html",
         users=users,
@@ -964,34 +965,31 @@ import hashlib
 def edit_user(user_id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
-    if request.method == 'POST':
-        new_password = request.form['new_password']
+   if request.method == 'POST':
+    new_password = request.form['new_password']
+    hashed_password = hashlib.sha256(new_password.encode()).hexdigest()
 
-        # ✅ Hash the new password before saving
-        hashed_password = hashlib.sha256(new_password.encode()).hexdigest()
+    db.session.execute(text("""
+        UPDATE users
+        SET password = :pw
+        WHERE id = :uid
+    """), {"pw": hashed_password, "uid": user_id})
+    db.session.commit()
 
-        cursor.execute("""
-            UPDATE users
-            SET password = %s
-            WHERE id = %s
-        """, (hashed_password, user_id))
-        mysql.connection.commit()
-        cursor.close()
+    flash('Password updated successfully.', 'success')
+    return redirect(url_for('admin_dashboard'))
+else:
+    user = db.session.execute(
+        text("SELECT * FROM users WHERE id = :uid"),
+        {"uid": user_id}
+    ).mappings().first()
 
-        flash('Password updated successfully.', 'success')
+    if not user:
+        flash("User not found.", "error")
         return redirect(url_for('admin_dashboard'))
 
-    else:
-        # Fetch user info for display
-        cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
-        user = cursor.fetchone()
-        cursor.close()
+    return render_template('edit_user.html', user=user)
 
-        if not user:
-            flash("User not found.", "error")
-            return redirect(url_for('admin_dashboard'))
-
-        return render_template('edit_user.html', user=user)
 
 
 
@@ -1002,22 +1000,25 @@ def delete_users():
         flash('No users selected.', 'warning')
         return redirect(url_for('admin_dashboard'))
 
-    cursor = mysql.connection.cursor()
-    # Build placeholder string for SQL IN clause
-    placeholders = ','.join(['%s'] * len(selected_users))
-    cursor.execute(f"DELETE FROM users WHERE id IN ({placeholders})", tuple(selected_users))
-    mysql.connection.commit()
-    cursor.close()
+   ids = [int(uid) for uid in selected_users]
+db.session.execute(
+    text("DELETE FROM users WHERE id = ANY(:ids)"),
+    {"ids": ids}
+)
+db.session.commit()
+
 
     flash(f'{len(selected_users)} user(s) deleted successfully.', 'success')
     return redirect(url_for('admin_dashboard'))
 
 @app.route('/delete_user/<int:user_id>', methods=['GET'])
 def delete_user(user_id):
-    cursor = mysql.connection.cursor()
-    cursor.execute("DELETE FROM users WHERE id = %s", (user_id,))
-    mysql.connection.commit()
-    cursor.close()
+    db.session.execute(
+    text("DELETE FROM users WHERE id = :uid"),
+    {"uid": user_id}
+)
+db.session.commit()
+
     flash('User deleted successfully.', 'success')
     return redirect(url_for('admin_dashboard'))
 
@@ -1124,7 +1125,7 @@ def delete_selected_training_data(strand):
 #edit profile
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
-import os, MySQLdb
+import os
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
 def edit_profile():
@@ -1149,21 +1150,22 @@ def edit_profile():
         if password:
             hashed_password = generate_password_hash(password)
         else:
-            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute("SELECT password FROM users WHERE id = %s", (user['id'],))
-            db_user = cursor.fetchone()
-            hashed_password = db_user['password'] if db_user else ''
-            cursor.close()
+           if password:
+    hashed_password = generate_password_hash(password)
+else:
+    db_user = db.session.execute(
+        text("SELECT password FROM users WHERE id = :uid"),
+        {"uid": user['id']}
+    ).mappings().first()
+    hashed_password = db_user['password'] if db_user else ''
 
-        # Update user in database (only full_name, email, password)
-        cursor = mysql.connection.cursor()
-        cursor.execute("""
-            UPDATE users 
-            SET full_name = %s, email = %s, password = %s
-            WHERE id = %s
-        """, (full_name, email, hashed_password, user['id']))
-        mysql.connection.commit()
-        cursor.close()
+db.session.execute(text("""
+    UPDATE users 
+    SET full_name = :fn, email = :em, password = :pw
+    WHERE id = :uid
+"""), {"fn": full_name, "em": email, "pw": hashed_password, "uid": user['id']})
+db.session.commit()
+
 
         # Update session data
         user.update({

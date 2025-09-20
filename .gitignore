@@ -1,32 +1,7 @@
-# Python cache files
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
-
-# Virtual environment
-venv/
-env/
-.venv/
-
-# Flask instance folder
-instance/
 *.db
-
-# Environment variables
 .env
-
-# Uploads / user files
-uploads/
-static/uploads/
-
-# IDE / editor files
+instance/
 .vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# OS generated files
-.DS_Store
-Thumbs.db
-

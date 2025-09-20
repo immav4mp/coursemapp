@@ -1,0 +1,156 @@
+[
+  {
+    "date": "2025-09-19 02:33",
+    "suggested_course": "No course matched",
+    "knowledge_top3": [],
+    "scores": {
+      "knowledge": "0/30",
+      "interest": "150%",
+      "aptitude": "0/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:35",
+    "suggested_course": "Bachelor of Science in Electrical Engineering",
+    "knowledge_top3": [
+      "Bachelor of Science in Electrical Engineering",
+      "Bachelor of Science in Architecture",
+      "Bachelor of Science in Statistics"
+    ],
+    "scores": {
+      "knowledge": "4/30",
+      "interest": "150%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:40",
+    "suggested_course": "Bachelor of Science in Electrical Engineering",
+    "knowledge_top3": [
+      "Bachelor of Science in Electrical Engineering",
+      "Bachelor of Science in Architecture",
+      "Bachelor of Science in Statistics"
+    ],
+    "scores": {
+      "knowledge": "4/30",
+      "interest": "150%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:40",
+    "suggested_course": "Bachelor of Science in Electrical Engineering",
+    "knowledge_top3": [
+      "Bachelor of Science in Electrical Engineering",
+      "Bachelor of Science in Architecture",
+      "Bachelor of Science in Statistics"
+    ],
+    "scores": {
+      "knowledge": "4/30",
+      "interest": "150%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:44",
+    "suggested_course": "Bachelor of Science in Electrical Engineering",
+    "knowledge_top3": [
+      "Bachelor of Science in Electrical Engineering",
+      "Bachelor of Science in Architecture",
+      "Bachelor of Science in Statistics"
+    ],
+    "scores": {
+      "knowledge": "4/30",
+      "interest": "100.0%",
+      "aptitude": "2/5",
+      "personality": "100.0%",
+      "goal": "0.0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:46",
+    "suggested_course": "Bachelor of Science in Electrical Engineering",
+    "knowledge_top3": [
+      "Bachelor of Science in Electrical Engineering",
+      "Bachelor of Science in Architecture",
+      "Bachelor of Science in Statistics"
+    ],
+    "scores": {
+      "knowledge": "4/100",
+      "interest": "150%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:47",
+    "suggested_course": "Bachelor of Science in Electrical Engineering",
+    "knowledge_top3": [
+      "Bachelor of Science in Electrical Engineering",
+      "Bachelor of Science in Architecture",
+      "Bachelor of Science in Statistics"
+    ],
+    "scores": {
+      "knowledge": "4/100",
+      "interest": "150%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:48",
+    "suggested_course": "Bachelor of Science in Electrical Engineering",
+    "knowledge_top3": [
+      "Bachelor of Science in Electrical Engineering",
+      "Bachelor of Science in Architecture",
+      "Bachelor of Science in Statistics"
+    ],
+    "scores": {
+      "knowledge": "4/30",
+      "interest": "150%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:49",
+    "suggested_course": "Bachelor of Science in Electrical Engineering",
+    "knowledge_top3": [
+      "Bachelor of Science in Electrical Engineering",
+      "Bachelor of Science in Architecture",
+      "Bachelor of Science in Statistics"
+    ],
+    "scores": {
+      "knowledge": "4/30",
+      "interest": "150%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:50",
+    "suggested_course": "Bachelor of Science in Nursing",
+    "knowledge_top3": [
+      "Bachelor of Science in Nursing"
+    ],
+    "scores": {
+      "knowledge": "1/30",
+      "interest": "150%",
+      "aptitude": "1/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  }
+]

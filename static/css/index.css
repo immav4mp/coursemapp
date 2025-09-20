@@ -1,0 +1,668 @@
+/* ---------- YOUR ORIGINAL CSS (unchanged) ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, rgba(92, 78, 58, 0.849), #8b540bd5);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    padding: 40px 60px;
+    flex: 1;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.959);
+    text-decoration: none;
+    position: relative;
+    font-style: italic;
+}
+
+
+/* Arrow icon style */
+
+
+/* Arrow icon style */
+
+.arrow {
+    margin-left: 5px;
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+    color: #d4d0be77;
+}
+
+
+/* Rotate arrow when menu is open */
+
+.dropdown-wrapper.open .arrow {
+    transform: rotate(180deg);
+}
+
+
+/* Dropdown menu styling */
+
+.dropdown-menu {
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.signup-btn {
+    padding: 5px 15px;
+    background: white;
+    color: #797575ff;
+    border-radius: 30px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.signup-btn:hover {
+    background: rgba(136, 83, 23, 0.822);
+    color: #fcfcfcff;
+}
+
+.hero {
+    width: 100%;
+    background: linear-gradient(145deg, #4c2882, #977402);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 80px;
+    border-radius: 0 0 30px 30px;
+    gap: 60px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(255, 253, 253, 0.774);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+    .hero-text,
+    .hero-image {
+        flex: 1 1 100%;
+    }
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-size: 1.5rem;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* Dropdown wrapper */
+
+.dropdown-wrapper {
+    position: relative;
+}
+
+
+/* Dropdown menu style */
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    /* directly under the nav item */
+    left: 0;
+    background: rgba(255, 255, 255, 0.979);
+    color: black;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.774);
+    padding: 0.5rem 0;
+    min-width: 110px;
+    z-index: 50;
+    display: none;
+    /* hidden by default */
+}
+
+
+/* Menu link style */
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #2e2e6b;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #2e2e9e;
+    color: wheat;
+}
+
+
+/* Show menu when active */
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.hero-banner {
+    width: 100%;
+    max-width: 1100px;
+    height: 320px;
+    margin: 0 auto 60px auto;
+    border-radius: 20px;
+    background: url("/static/icons/uploads/coursemapbg.png") center center / cover no-repeat;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(206, 203, 19, 0.658);
+}
+
+
+/* Add transparency overlay */
+
+.hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(177, 146, 8, 0.356);
+    /* Adjust opacity */
+    z-index: 1;
+}
+
+
+/* Keep the text above the overlay */
+
+.hero-banner>* {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(15, 15, 50, 0.7), rgba(110, 70, 200, 0.6));
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.hero-text-content {
+    max-width: 500px;
+    color: white;
+}
+
+.hero-text-content h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-text-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.start-btn {
+    background: #eae6e2e8;
+    color: #65310a;
+    padding: 7px 30px;
+    font-weight: 600;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 15px;
+}
+
+.start-btn:hover {
+    background: rgba(127, 27, 5, 0.906);
+    color: #fcfcfcff;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* Slide-in animation ONLY for guests */
+
+
+/* Slide left-to-right animation for heading */
+
+@keyframes slideInLeftToRight {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(20px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-text {
+    display: inline-block;
+    animation: slideInLeftToRight 1.2s ease-out forwards;
+}
+
+/* --- Responsive Fixes for CP (Mobile with Drawer Menu) --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    /* ✅ Navbar: title left, drawer icon right */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .navbar h1 {
+        font-size: 1.4rem;
+        margin: 0;
+    }
+
+    /* ❌ Hide auth-buttons on mobile */
+    .auth-buttons {
+        display: none !important;
+    }
+
+    /* ✅ Drawer (hamburger icon) */
+    .drawer-toggle {
+        display: block;
+        cursor: pointer;
+        width: 28px;
+        height: 20px;
+        position: relative;
+        z-index: 1100;
+    }
+
+    .drawer-toggle span {
+        background: white;
+        display: block;
+        height: 3px;
+        width: 100%;
+        border-radius: 2px;
+        margin-bottom: 5px;
+        transition: all 0.3s ease;
+    }
+
+    /* Drawer open animation (turn into "X") */
+    .drawer-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+    }
+    .drawer-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    .drawer-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+    }
+
+    /* ✅ Drawer menu (hidden by default) */
+    .drawer-menu {
+        position: absolute;
+        top: 60px;
+        right: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        padding: 15px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    .drawer-menu.show {
+        display: flex;
+    }
+
+    .drawer-menu button {
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: none;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .drawer-menu .login-btn {
+        background: transparent;
+        color: #333;
+    }
+
+    .drawer-menu .signup-btn {
+        background: #65310a;
+        color: white;
+    }
+
+    .drawer-menu .signup-btn:hover {
+        background: #472108;
+    }
+
+    @keyframes slideDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-15px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ✅ Hero simplified & centered */
+    .hero {
+        flex-direction: column;
+        padding: 35px 18px;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+        margin-bottom: 10px;
+    }
+
+    .hero-text p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 14px;
+    }
+
+    .hero-image {
+        max-width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .hero-banner {
+        height: 200px;
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .hero-text-content h1 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-text-content p {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    .start-btn {
+        padding: 7px 18px;
+        font-size: 13px;
+    }
+
+    /* ✅ Footer neat */
+    footer {
+        text-align: center;
+        padding: 20px 12px;
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+}
+
+/* ---------- END ORIGINAL CSS ---------- */
+
+/* ---------- STABILITY UPDATES - ADDED (do not remove) ---------- */
+
+/* Prevent horizontal scrolling on narrow/wide screens */
+body {
+    overflow-x: hidden;
+}
+
+/* Center main area and cap max width so layout doesn't stretch on large monitors */
+main, .main-wrapper {
+    max-width: 1500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Keep your existing .container rules but cap width for stability */
+.container {
+    max-width: 1400px; /* caps layout width on very large displays */
+    margin: 0 auto;    /* center container on wider screens */
+    /* keep your original padding value (already defined earlier) */
+}
+
+/* Make navbar not wrap unexpectedly on wide screens */
+.navbar {
+    flex-wrap: nowrap; /* keep logo + nav links aligned on one line */
+}
+
+/* Make hero block stable: cap width and keep centered */
+.hero {
+    max-width: 1200px; /* prevents hero from stretching too wide */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ensure hero images don't stretch disproportionately */
+.hero-image img,
+.hero-banner img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+/* Keep hero-banner stable ratio (reinforce existing) */
+.hero-banner {
+    max-width: 1100px;
+    height: 320px; /* fixed visual height for consistent look */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer: keep columns stable even when screen size changes.
+   (We intentionally do not remove inline styles in HTML; these rules complement them.) */
+footer {
+    padding: 40px 20px;
+    margin-top: auto;
+}
+
+/* Target the first inner wrapper inside footer (your HTML uses a div there) */
+footer > div {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;       /* keep original flex intent but ensure spacing */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Make each column inside the footer flex-stable */
+footer > div > div {
+    flex: 1 1 250px; /* grows/shrinks but keeps min width */
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+/* Modal smooth scale + fade (so opening/closing won't jump content) */
+#loginModal > div,
+#registerModal > div {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* When you add the "flex" class on the modal wrapper (our JS uses that), show full */
+#loginModal.flex > div,
+#registerModal.flex > div {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Keep loader above everything and ensure it hides cleanly */
+#loader {
+    z-index: 9999;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Small desktop breakpoint adjustments to keep positions stable */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 60px 40px;
+        gap: 30px;
+    }
+    .hero-image img {
+        max-height: 320px;
+    }
+    .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/* Keep the mobile rules you already have, but ensure min heights and paddings are consistent */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px; /* already present in your CSS; reinforced for stability */
+    }
+
+    .hero-banner {
+        height: 200px;
+        padding: 15px;
+    }
+
+    /* Ensure footer columns stack neatly */
+    footer > div {
+        justify-content: center;
+    }
+    footer > div > div {
+        min-width: 90%;
+        flex: 1 1 100%;
+    }
+}
+
+/* --- Mobile only: floating logo + inside close button --- */
+@media (max-width: 640px) {
+  /* Hide left panel content */
+  .left-panel h2,
+  .left-panel p {
+    display: none !important;
+  }
+  .left-panel {
+    background: none !important;
+    padding: 0 !important;
+  }
+
+  /* Floating logo */
+  .left-panel img {
+    position: absolute;
+    top: -120px; /* float above the card */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0 !important;
+    z-index: 30;
+  }
+
+  /* Make modal card ready for floating logo */
+  .login-form-container,
+  .register-form-container {
+    padding-top: 3rem !important; /* give space for logo */
+    position: relative;
+  }
+
+  /* Close button inside form */
+  #loginModal > div > button,
+  #registerModal > div > button {
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+    font-size: 1.5rem !important;
+    z-index: 40;
+  }
+}
+
+
+
+
+
+/* ---------- END STABILITY UPDATES ---------- */

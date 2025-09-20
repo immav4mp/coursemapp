@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aptitude Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/aptitude.css') }}">
+</head>
+<body>
+  <div class="container">
+    <!-- Progress bar -->
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Strand Title -->
+    <h2>Aptitude Test - {{ user['strand'].capitalize() }}</h2>
+
+    <!-- Aptitude Test Form -->
+    <form method="POST" id="aptitudeForm">
+      {% for q in aptitude_questions %}
+        <div class="question {% if loop.index == 1 %}active{% endif %}" data-question-index="{{ loop.index0 }}">
+          <p>{{ q.question }}</p>
+          <small class="course-label">Related Course: <em>{{ q.course }}</em></small>
+
+          <div class="options">
+            <label>
+              <input type="radio" name="q{{ q.id }}" value="A" required>
+              <span class="letter">A.</span>
+              <span class="choice-text">{{ q.option_a }}</span>
+            </label>
+            <label>
+              <input type="radio" name="q{{ q.id }}" value="B">
+              <span class="letter">B.</span>
+              <span class="choice-text">{{ q.option_b }}</span>
+            </label>
+            <label>
+              <input type="radio" name="q{{ q.id }}" value="C">
+              <span class="letter">C.</span>
+              <span class="choice-text">{{ q.option_c }}</span>
+            </label>
+            <label>
+              <input type="radio" name="q{{ q.id }}" value="D">
+              <span class="letter">D.</span>
+              <span class="choice-text">{{ q.option_d }}</span>
+            </label>
+          </div>
+
+          <!-- Next / Finish button -->
+          <button type="button" class="btn next-btn">
+            {% if loop.last %}Finish{% else %}Next{% endif %}
+          </button>
+        </div>
+      {% endfor %}
+    </form>
+
+    <!-- Counter -->
+    <div class="progress-counter" id="progressCounter">1/{{ aptitude_questions|length }}</div>
+  </div>
+
+  <script>
+    const questions = document.querySelectorAll('.question');
+    const progressBar = document.getElementById('progressBar');
+    const progressCounter = document.getElementById('progressCounter');
+    let currentIndex = 0;
+
+    function updateProgress() {
+      const percent = ((currentIndex + 1) / questions.length) * 100;
+      progressBar.style.width = percent + '%';
+      progressCounter.textContent = `${currentIndex + 1}/${questions.length}`;
+    }
+
+    document.querySelectorAll('.next-btn').forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        const currentQuestion = questions[index];
+        const selected = currentQuestion.querySelector('input[type="radio"]:checked');
+
+        if (!selected) {
+          alert("Please select an answer before continuing.");
+          return;
+        }
+
+        currentQuestion.classList.remove('active');
+
+        if (index + 1 < questions.length) {
+          questions[index + 1].classList.add('active');
+          currentIndex++;
+          updateProgress();
+        } else {
+          document.getElementById('aptitudeForm').submit();
+        }
+      });
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>

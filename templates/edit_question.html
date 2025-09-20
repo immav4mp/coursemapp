@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Question</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-6">
+    <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow">
+        
+        <!-- Header with Strand and Question ID -->
+        <div class="mb-6 border-b pb-4">
+            <h1 class="text-2xl font-bold mb-2">Edit Question</h1>
+            <p class="text-sm text-gray-600">
+                <span class="font-semibold">Strand:</span> {{ strand|upper }}  
+                &nbsp;|&nbsp;  
+                <span class="font-semibold">Question ID:</span> {{ question.id }}  
+                &nbsp;|&nbsp;  
+                <span class="font-semibold">Current Course:</span> {{ question.course }}
+            </p>
+        </div>
+
+        <form method="POST">
+            <!-- Course -->
+            <div class="mb-4">
+                <label class="block font-semibold mb-1">Course</label>
+                <input type="text" name="course" value="{{ question.course }}" 
+                       class="w-full border px-3 py-2 rounded" required>
+            </div>
+
+            <!-- Question -->
+            <div class="mb-4">
+                <label class="block font-semibold mb-1">Question</label>
+                <textarea name="question" rows="3" 
+                          class="w-full border px-3 py-2 rounded" required>{{ question.question }}</textarea>
+            </div>
+
+            <!-- Options -->
+            <div class="mb-4 grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block font-semibold mb-1">Option A</label>
+                    <input type="text" name="option_a" value="{{ question.option_a }}" 
+                           class="w-full border px-3 py-2 rounded" required>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Option B</label>
+                    <input type="text" name="option_b" value="{{ question.option_b }}" 
+                           class="w-full border px-3 py-2 rounded" required>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Option C</label>
+                    <input type="text" name="option_c" value="{{ question.option_c }}" 
+                           class="w-full border px-3 py-2 rounded" required>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Option D</label>
+                    <input type="text" name="option_d" value="{{ question.option_d }}" 
+                           class="w-full border px-3 py-2 rounded" required>
+                </div>
+            </div>
+
+            <!-- Correct Answer -->
+            <div class="mb-6">
+                <label class="block font-semibold mb-1">Correct Answer (A, B, C, or D)</label>
+                <input type="text" name="answer" value="{{ question.answer }}" maxlength="1" 
+                       class="w-20 border px-3 py-2 rounded uppercase" required>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-between">
+                <a href="{{ url_for('admin_dashboard') }}" 
+                   class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</a>
+                <button type="submit" 
+                        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

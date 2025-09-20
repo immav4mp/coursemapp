@@ -1,0 +1,280 @@
+:root {
+    --primary: #9C1A33;     /* Deep Red */
+    --secondary: #840021;   /* Dark Burgundy for text/headings */
+    --background: #FEFFE2;  /* Light Cream */
+    --accent: #FF9B1A;      /* Orange accent */
+    --card-bg: #ffffff;
+    --border-radius: 18px;
+    --text: #333;           /* Default text */
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Page Layout */
+body {
+    background: linear-gradient(135deg, #945f1a, #7e410b);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text);
+}
+
+/* Loader */
+.loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(156, 26, 51, 0.95), rgba(132, 0, 33, 0.95));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    z-index: 9999;
+    animation: fadeIn 0.4s ease;
+    letter-spacing: 1px;
+}
+
+/* Container */
+.container {
+    background: var(--background);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px var(--shadow);
+    max-width: 720px;
+    width: 100%;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+    border: 2px solid var(--accent);
+}
+
+/* Progress Bar */
+.progress {
+    height: 10px;
+    background: #f1f1f1;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    width: 0%;
+    transition: width 0.4s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25) inset;
+}
+
+/* Title */
+h2 {
+    margin-bottom: 20px;
+    color: var(--secondary);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Questions */
+.question {
+    display: none;
+}
+.question.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+.question p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+/* Options */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    background: #fff;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.options input[type="radio"] {
+    accent-color: var(--primary);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.options label:hover {
+    border-color: var(--primary);
+    background: #fff6f6;
+    transform: translateY(-1px);
+}
+
+/* Buttons */
+.btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px 26px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn:hover {
+    background: var(--secondary);
+    box-shadow: 0 6px 15px rgba(156, 26, 51, 0.25);
+}
+
+/* Progress Counter */
+.progress-counter {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--secondary);
+    opacity: 0.85;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile - new centered design */
+@media (max-width: 600px) {
+    body {
+        background: #964e0ada;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 1rem;
+    }
+
+    .container {
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        width: 100%;
+        max-width: 450px;
+        text-align: center;
+    }
+
+    .progress {
+        margin-bottom: 14px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        color: #c2bbbb;
+        margin-bottom: 1.5rem;
+    }
+
+    .question p {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1.5rem;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 1.5rem;
+    }
+
+    .options label {
+        display: flex;                  /* flexbox row */
+        align-items: center;            /* center vertically */
+        justify-content: center;        /* center content */
+        background: #ffd06b;
+        font-weight: 300;
+        font-size: 0.8rem;
+        padding: 16px;
+        border-radius: 999px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: #333;
+        position: relative;
+    }
+
+    /* Letter (A, B, C, D) */
+    .options label .letter {
+        position: absolute;
+        left: 16px;                     /* stick to left */
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    /* Hover effect */
+    .options label:hover {
+        background: #b80808;
+        color: #ffffff;
+    }
+
+    /* Selected (clicked) option */
+    .options input[type="radio"]:checked + label {
+        background: #9C1A33;
+        color: #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        transform: scale(1.02);
+    }
+
+    .options input[type="radio"] {
+        display: none;
+    }
+
+    .btn {
+        background: #6a0f25;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 999px;
+        padding: 14px 40px;
+        font-size: 1.1rem;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        margin: 0 auto;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        background: #9C1A33;
+        transform: scale(1.05);
+    }
+
+    .progress-counter {
+        margin-top: 16px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+    }
+}

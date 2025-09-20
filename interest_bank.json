@@ -1,0 +1,480 @@
+{
+  "humss": {
+    "interest": [
+      {
+        "id": 401,
+        "course": "Bachelor of Elementary Education Major in General Education",
+        "question": "Do you enjoy teaching children the basics of reading, writing, and math?",
+        "option_a": "Yes, I enjoy teaching kids",
+        "option_b": "Maybe, if I have patience",
+        "option_c": "No, I don’t like teaching kids"
+      },
+      {
+        "id": 402,
+        "course": "Bachelor of Elementary Education Major in General Education",
+        "question": "Do you like creating lesson plans for young learners?",
+        "option_a": "Yes, I love making lessons",
+        "option_b": "Sometimes, if it’s simple",
+        "option_c": "No, it’s too much work"
+      },
+      {
+        "id": 403,
+        "course": "Bachelor of Elementary Education Major in General Education",
+        "question": "Would you enjoy helping children improve their social and academic skills?",
+        "option_a": "Yes, I find it fulfilling",
+        "option_b": "Maybe, if I have support",
+        "option_c": "No, I’m not interested"
+      },
+
+      {
+        "id": 404,
+        "course": "Bachelor of Early Childhood Education",
+        "question": "Do you enjoy teaching children through play and fun activities?",
+        "option_a": "Yes, I love playful teaching",
+        "option_b": "Maybe, if I have the energy",
+        "option_c": "No, I don’t enjoy that"
+      },
+      {
+        "id": 405,
+        "course": "Bachelor of Early Childhood Education",
+        "question": "Do you like caring for and guiding toddlers or preschoolers?",
+        "option_a": "Yes, I enjoy it",
+        "option_b": "Sometimes, if they behave",
+        "option_c": "No, it’s not for me"
+      },
+      {
+        "id": 406,
+        "course": "Bachelor of Early Childhood Education",
+        "question": "Do you enjoy making creative classroom activities for small kids?",
+        "option_a": "Yes, creativity is fun",
+        "option_b": "Sometimes, if I have materials",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 407,
+        "course": "Bachelor of Secondary Education Major in English",
+        "question": "Do you enjoy analyzing and teaching literature and grammar?",
+        "option_a": "Yes, I love English",
+        "option_b": "Sometimes, if it’s easy",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 408,
+        "course": "Bachelor of Secondary Education Major in Filipino",
+        "question": "Do you enjoy promoting Filipino culture and language?",
+        "option_a": "Yes, I love Filipino",
+        "option_b": "Maybe, sometimes",
+        "option_c": "No, I don’t enjoy it"
+      },
+      {
+        "id": 409,
+        "course": "Bachelor of Secondary Education Major in Mathematics",
+        "question": "Do you enjoy solving and teaching math problems?",
+        "option_a": "Yes, I enjoy math",
+        "option_b": "Sometimes, if it’s easy",
+        "option_c": "No, I don’t like math"
+      },
+      {
+        "id": 410,
+        "course": "Bachelor of Secondary Education Major in Social Studies",
+        "question": "Do you like studying history and society?",
+        "option_a": "Yes, I love history",
+        "option_b": "Maybe, if it’s interesting",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 411,
+        "course": "Bachelor of Secondary Education Major in General Science",
+        "question": "Do you enjoy teaching basic science experiments?",
+        "option_a": "Yes, I love science",
+        "option_b": "Maybe, if I understand it",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 412,
+        "course": "Methods of Teaching",
+        "question": "Do you like learning different teaching strategies?",
+        "option_a": "Yes, I enjoy it",
+        "option_b": "Maybe, if it’s useful",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 413,
+        "course": "Bachelor of Physical Education",
+        "question": "Do you enjoy sports and physical fitness activities?",
+        "option_a": "Yes, I love sports",
+        "option_b": "Sometimes, for fun",
+        "option_c": "No, I don’t like sports"
+      },
+
+      {
+        "id": 414,
+        "course": "Bachelor of Culture and Arts Education",
+        "question": "Do you like music, theater, or visual arts?",
+        "option_a": "Yes, I enjoy arts",
+        "option_b": "Sometimes, if I’m inspired",
+        "option_c": "No, I don’t like arts"
+      },
+
+      {
+        "id": 415,
+        "course": "Bachelor of Technology and Livelihood Education Major in Home Economics",
+        "question": "Do you enjoy cooking, sewing, and home management?",
+        "option_a": "Yes, I love it",
+        "option_b": "Maybe, if I’m in the mood",
+        "option_c": "No, I don’t enjoy it"
+      },
+
+      {
+        "id": 416,
+        "course": "Bachelor of Technology and Livelihood Education Major in Industrial Arts",
+        "question": "Do you enjoy woodworking and metalworks?",
+        "option_a": "Yes, I enjoy it",
+        "option_b": "Maybe, sometimes",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 417,
+        "course": "Bachelor of Technical-Vocational Teacher Education Major in Food and Service Management",
+        "question": "Do you like working in food service and hospitality?",
+        "option_a": "Yes, I love it",
+        "option_b": "Sometimes, if it’s simple",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 418,
+        "course": "Bachelor of Technical-Vocational Teacher Education Major in Garments Fashion and Design",
+        "question": "Do you enjoy designing clothes and fashion styles?",
+        "option_a": "Yes, I enjoy fashion",
+        "option_b": "Sometimes, for fun",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 419,
+        "course": "Bachelor of Technical-Vocational Teacher Education",
+        "question": "Do you want to be skilled in both teaching and technical work?",
+        "option_a": "Yes, I like it",
+        "option_b": "Maybe, if it’s practical",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 420,
+        "course": "Bachelor of Science in Exercises and Sports Science Major in Fitness and Sports Management",
+        "question": "Do you like managing sports programs and fitness centers?",
+        "option_a": "Yes, I enjoy it",
+        "option_b": "Sometimes, if it’s simple",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 421,
+        "course": "Bachelor of Science in Exercises and Sports Science Major in Fitness and Sports Coaching",
+        "question": "Do you like training and coaching athletes?",
+        "option_a": "Yes, I love coaching",
+        "option_b": "Sometimes, for fun",
+        "option_c": "No, I don’t like it"
+      }
+    ]
+  },
+
+  "stem": {
+    "interest": [
+      {
+        "id": 501,
+        "course": "Bachelor of Science in Civil Engineering",
+        "question": "Do you enjoy designing and building structures?",
+        "option_a": "Yes, I love construction",
+        "option_b": "Maybe, if I get help",
+        "option_c": "No, I don’t enjoy it"
+      },
+
+      {
+        "id": 502,
+        "course": "Bachelor of Science in Computer Engineering",
+        "question": "Do you enjoy creating hardware and software systems?",
+        "option_a": "Yes, I love tech",
+        "option_b": "Maybe, if it’s simple",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 503,
+        "course": "Bachelor of Science in Electrical Engineering",
+        "question": "Do you enjoy working with electricity and power systems?",
+        "option_a": "Yes, I enjoy it",
+        "option_b": "Maybe, if it’s safe",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 504,
+        "course": "Bachelor of Science in Electronics Engineering",
+        "question": "Do you like designing electronic devices?",
+        "option_a": "Yes, I love electronics",
+        "option_b": "Maybe, for small projects",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 505,
+        "course": "Bachelor of Science in Industrial Engineering",
+        "question": "Do you enjoy improving efficiency in companies?",
+        "option_a": "Yes, I like it",
+        "option_b": "Maybe, if it’s practical",
+        "option_c": "No, I don’t enjoy it"
+      },
+
+      {
+        "id": 506,
+        "course": "Bachelor of Science in Mechanical Engineering",
+        "question": "Do you like designing and repairing machines?",
+        "option_a": "Yes, I love machines",
+        "option_b": "Maybe, if I’m interested",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 507,
+        "course": "Bachelor of Science in Architecture",
+        "question": "Do you enjoy designing houses and buildings?",
+        "option_a": "Yes, I love designing",
+        "option_b": "Maybe, if I get help",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 508,
+        "course": "Bachelor of Science in Information Technology",
+        "question": "Do you like developing websites and applications?",
+        "option_a": "Yes, I enjoy it",
+        "option_b": "Maybe, if it’s simple",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 509,
+        "course": "Bachelor of Science in Information Systems",
+        "question": "Do you like solving problems using computer systems?",
+        "option_a": "Yes, I love it",
+        "option_b": "Maybe, if it’s easy",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 510,
+        "course": "Bachelor of Science in Computer Science",
+        "question": "Do you enjoy coding and creating software programs?",
+        "option_a": "Yes, I love coding",
+        "option_b": "Sometimes, for fun",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 511,
+        "course": "Bachelor of Science in Biology",
+        "question": "Do you enjoy studying living organisms?",
+        "option_a": "Yes, I love biology",
+        "option_b": "Maybe, if it’s easy",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 512,
+        "course": "Bachelor of Science in Mathematics",
+        "question": "Do you enjoy solving math puzzles and problems?",
+        "option_a": "Yes, I love math",
+        "option_b": "Maybe, if it’s simple",
+        "option_c": "No, I don’t like math"
+      },
+
+      {
+        "id": 513,
+        "course": "Bachelor of Science in Statistics",
+        "question": "Do you like analyzing data and numbers?",
+        "option_a": "Yes, I love statistics",
+        "option_b": "Maybe, if it’s simple",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 514,
+        "course": "Bachelor of Science in Environmental Science",
+        "question": "Do you like studying the environment and nature?",
+        "option_a": "Yes, I love it",
+        "option_b": "Maybe, sometimes",
+        "option_c": "No, I don’t like it"
+      },
+
+      {
+        "id": 515,
+        "course": "Bachelor of Science in Nursing",
+        "question": "Do you like caring for and helping patients?",
+        "option_a": "Yes, I love nursing",
+        "option_b": "Maybe, if it’s not too hard",
+        "option_c": "No, I don’t like it"
+      }
+    ]
+  },
+  "abm": {
+    "interest": [
+      {
+        "id": 701,
+        "course": "Bachelor of Science in Business Administration Major in Marketing Management",
+        "question": "Do you enjoy creating ideas to advertise and promote products?",
+        "option_a": "Yes, I love marketing",
+        "option_b": "Maybe, if it’s creative",
+        "option_c": "No, I don’t enjoy it"
+      },
+      {
+        "id": 702,
+        "course": "Bachelor of Science in Business Administration Major in Business Economics",
+        "question": "Do you enjoy analyzing business trends and economic data?",
+        "option_a": "Yes, I like economics",
+        "option_b": "Maybe, if it’s simple",
+        "option_c": "No, I don’t enjoy it"
+      },
+      {
+        "id": 703,
+        "course": "Bachelor of Science in Entrepreneurship",
+        "question": "Do you want to start and manage your own business?",
+        "option_a": "Yes, I want to be an entrepreneur",
+        "option_b": "Maybe, if I get support",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 704,
+        "course": "Bachelor of Science in Accountancy",
+        "question": "Do you enjoy solving accounting problems and preparing financial reports?",
+        "option_a": "Yes, I love accounting",
+        "option_b": "Maybe, if it’s simple",
+        "option_c": "No, I don’t enjoy it"
+      },
+      {
+        "id": 705,
+        "course": "Bachelor of Science in Accounting Information Systems",
+        "question": "Do you like using technology to manage business and accounting systems?",
+        "option_a": "Yes, I love accounting with tech",
+        "option_b": "Maybe, if I learn more",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 706,
+        "course": "Bachelor of Public Administration",
+        "question": "Do you want to work in government service and help manage public programs?",
+        "option_a": "Yes, I want to serve the public",
+        "option_b": "Maybe, if it’s simple",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 707,
+        "course": "Bachelor of Science in Real Estate Management",
+        "question": "Do you like selling, managing, or developing properties?",
+        "option_a": "Yes, I enjoy real estate",
+        "option_b": "Maybe, if it’s profitable",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 708,
+        "course": "Bachelor of Science in Legal Management",
+        "question": "Do you enjoy studying law and business together?",
+        "option_a": "Yes, I like legal studies",
+        "option_b": "Maybe, if it’s not too hard",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 709,
+        "course": "Bachelor of Science in Logistics and Supply Chain Management",
+        "question": "Do you like planning the flow of goods and managing supply chains?",
+        "option_a": "Yes, I enjoy logistics",
+        "option_b": "Maybe, if it’s practical",
+        "option_c": "No, I don’t like it"
+      }
+    ]
+  },
+  "gas": {
+    "interest": [
+      {
+        "id": 801,
+        "course": "Bachelor of Science in Psychology",
+        "question": "Do you enjoy understanding people’s thoughts, emotions, and behaviors?",
+        "option_a": "Yes, I love psychology",
+        "option_b": "Maybe, if it’s simple",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 802,
+        "course": "Bachelor of Science in Human Services",
+        "question": "Do you want to help individuals and families improve their lives?",
+        "option_a": "Yes, I enjoy helping others",
+        "option_b": "Maybe, if it’s not too hard",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 803,
+        "course": "Bachelor of Science in Sociology",
+        "question": "Do you enjoy studying how society and communities work?",
+        "option_a": "Yes, I love sociology",
+        "option_b": "Maybe, if it’s interesting",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 804,
+        "course": "Bachelor of Science in Social Work",
+        "question": "Do you want to support people in solving social and personal problems?",
+        "option_a": "Yes, I want to help",
+        "option_b": "Maybe, if I can handle it",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 805,
+        "course": "Bachelor of Science in Social Work (Second Degree - Trimester)",
+        "question": "Would you pursue social work again to gain deeper skills and faster training?",
+        "option_a": "Yes, I want advanced skills",
+        "option_b": "Maybe, if I have time",
+        "option_c": "No, I don’t want it"
+      },
+      {
+        "id": 806,
+        "course": "Bachelor of Science in Hospitality Management",
+        "question": "Do you enjoy managing hotels, restaurants, or resorts?",
+        "option_a": "Yes, I love hospitality",
+        "option_b": "Maybe, if it’s fun",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 807,
+        "course": "Bachelor of Science in Tourism Management",
+        "question": "Do you enjoy promoting travel and tourism experiences?",
+        "option_a": "Yes, I love tourism",
+        "option_b": "Maybe, if it’s exciting",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 808,
+        "course": "Bachelor of Science in Tourism Management Major in Events Management",
+        "question": "Do you like organizing and managing events such as weddings or festivals?",
+        "option_a": "Yes, I love events",
+        "option_b": "Maybe, if it’s simple",
+        "option_c": "No, I don’t like it"
+      },
+      {
+        "id": 809,
+        "course": "Associate in Computer Technology",
+        "question": "Do you like learning about computers and basic programming?",
+        "option_a": "Yes, I enjoy tech",
+        "option_b": "Maybe, if it’s easy",
+        "option_c": "No, I don’t like it"
+      }
+    ]
+  }
+}
+
+
+

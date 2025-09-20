@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CourseMAP</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+
+<body class="bg-[#47599C]">
+
+  <div id="loader">Please wait...</div>
+
+  <main class="max-w-[1500px] mx-full px-8">
+    <div class="container">
+      <!-- NAVBAR -->
+      <div class="navbar">
+        <div class="logo">
+          <h2>
+            <a href="/" class="text-yellow-400 hover:text-white transition-colors duration-300">
+              CourseMAP
+            </a>
+          </h2>
+        </div>
+        <div class="nav-links">
+          <div class="dropdown-wrapper">
+            <a href="#" onclick="toggleMenu('menu1', event)">
+              Home <span class="arrow">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu1">
+              <a href="#">Menu A</a>
+              <a href="#">Menu B</a>
+              <a href="#">Menu C</a>
+            </div>
+          </div>
+          <div class="dropdown-wrapper">
+            <a href="#" onclick="toggleMenu('menu2', event)">
+              Navbar <span class="arrow">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu2">
+              <a href="#">Menu A</a>
+              <a href="#">Menu B</a>
+              <a href="#">Menu C</a>
+            </div>
+          </div>
+          <div class="dropdown-wrapper">
+            <a href="#" onclick="toggleMenu('menu3', event)">
+              Navbar <span class="arrow">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu3">
+              <a href="#">Menu A</a>
+              <a href="#">Menu B</a>
+              <a href="#">Menu C</a>
+            </div>
+          </div>
+        </div>
+
+        {% if user %}
+        <!-- USER MENU DRAWER -->
+        <div>
+          <button onclick="toggleUserDrawer()" class="p-2 text-white hover:text-gray-300 focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+
+          <div id="drawer-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleUserDrawer()"></div>
+
+          <div id="user-drawer" class="fixed top-0 right-0 h-full w-64 bg-orange-900 shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+            <div class="p-4 border-b">
+              <h2 class="text-lg font-semibold text-gray-200 flex items-center gap-2">
+                <button onclick="toggleUserDrawer()" class="p-1 rounded hover:bg-gray-700 transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                Menu
+              </h2>
+            </div>
+            <nav class="flex flex-col p-4 space-y-2">
+              <a href="/edit_profile" class="px-4 py-2 text-white rounded hover:bg-gray-900">Edit Profile</a>
+              <a href="/history" class="px-4 py-2 text-white rounded hover:bg-gray-900">History</a>
+              <a href="/logout" class="px-4 py-2 text-white rounded hover:bg-gray-900">Logout</a>
+            </nav>
+          </div>
+        </div>
+        {% else %}
+        <!-- login and signup button -->
+        <div class="flex gap-4">
+          <button class="start-btn group flex items-center gap-2 hover:gap-3 transition-all duration-200" onclick="openLoginModal()">
+            Login
+            <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" 
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+          <button class="start-btn group flex items-center gap-2 hover:gap-3 transition-all duration-200" onclick="openRegisterModal()">
+            Sign Up
+            <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" 
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+        {% endif %}
+      </div>
+
+      {% if user and user.full_name %}
+      <!-- After login -->
+      <div class="hero-banner flex items-center justify-center min-h-[50vh]">
+        <div class="text-center ">
+          <h1 id="typewriter" class="text-4xl font-bold text-white mb-4"></h1>
+          <p class="text-sm text-gray-300 italic font-normal mb-6">Let's begin discovering your ideal college course.</p>
+          {% if user.profile_completed == 1 %}
+            <button class="start-btn group flex items-center gap-2 hover:gap-3 transition-all duration-200 mx-auto"
+              onclick="window.location.href='/dashboard'">
+              Start Assessment
+              <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" 
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          {% else %}
+            <button class="start-btn mx-auto" onclick="window.location.href='/complete_profile'">Complete Profile →</button>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- History Section -->
+      {% if user.history %}
+      <div class="max-w-4xl mx-auto mt-10 mb-16 p-6 bg-white rounded-xl shadow">
+        <h2 class="text-2xl font-bold text-orange-700 mb-4">📜 Recent Test History</h2>
+        <div class="space-y-4">
+          {% for record in user.history[-2:] %}
+          <div class="p-4 border rounded-lg bg-gray-50 hover:bg-gray-100 transition">
+            <p class="text-sm text-gray-600">Taken on: {{ record.date | format_datetime }}</p>
+            <p class="font-semibold">Suggested Course:
+              <span class="text-orange-600">{{ record.suggested_course }}</span>
+            </p>
+            <p class="text-sm text-gray-700 mt-1">Top Courses:
+              <span class="text-gray-800">{{ record.top_courses | join(', ') }}</span>
+            </p>
+            <p class="text-sm text-gray-700 mt-1">Scores:
+              {% for key, val in record.scores.items() %}
+                {{ key|capitalize }}: {{ val }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="mt-4 text-right">
+          <a href="/history" class="text-sm text-orange-700 font-semibold hover:underline">View Full History →</a>
+        </div>
+      </div>
+      {% endif %}
+      {% else %}
+      <!-- Before login -->
+      <div class="hero-banner flex items-center min-h-[51.7vh]">
+        <div class="px-6 py-12 max-w-lg">
+          <h1 class="slide-text text-4xl font-bold text-white mb-4">
+            Discover your Ideal Course with CourseMap
+          </h1>
+          <p class="text-sm text-gray-300 italic font-normal mb-6">
+            Take our short profiling and aptitude tests to discover the top 3 college courses that match your skills, interests, and future goals.
+          </p>
+          <button class="start-btn group flex items-center gap-2 hover:gap-3 transition-all duration-200"
+            onclick="openRegisterModal()">
+            Get Started
+            <svg class="w-6 h-6 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" 
+              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer style="background: #4d3e10f5; color: white; padding: 40px 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 1200px; margin: auto;">
+      <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+        <h2 style="color: orange; font-size: 20px; font-weight: bold;">CourseMAP</h2>
+        <p style="color: white; margin-top: 10px;">Your trusted companion in finding the best pre-college course based on your unique path.</p>
+      </div>
+      <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+        <h3 style="color: orange; font-weight: bold;">Quick Links</h3>
+        <ul style="list-style: none; padding: 0; margin-top: 10px;">
+          <li><a href="/" style="color: white; text-decoration: none;">Home</a></li>
+          <li><a href="/edit_profile" style="color: white; text-decoration: none;">Profile</a></li>
+          <li><a href="/history" style="color: white; text-decoration: none;">History</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Help</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+       <h3 style="color: orange; font-weight: bold;">Contacts</h3>
+        <p style="color: white;">Email: support@coursemap.com</p>
+        <p style="color: white;">Phone: +63 912 345 6789</p>
+        <p style="color: white;">Address: Bacolor Pampanga, Philippines</p>
+      </div>
+    </div>
+    <div style="text-align: center; padding-top: 20px; border-top: 1px solid #333; color: white;">
+      @2025 CourseMAP. All rights reserved.
+    </div>
+  </footer>
+
+ <!-- LOGIN MODAL -->
+<div id="loginModal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-60 z-50 overflow-auto transition-opacity duration-300">
+  <div class="bg-white rounded-lg shadow-lg max-w-4xl w-full mx-4 relative transform scale-95 opacity-0 transition-all duration-300">
+    <button onclick="closeLoginModal()" class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-2xl">&times;</button>
+    <div class="w-full flex flex-col md:flex-row min-h-[600px] bg-white bg-opacity-95 rounded-lg shadow-lg">
+      <!-- Left -->
+      <div class="left-panel md:w-1/3 bg-gradient-to-r from-[#6D4C41] to-[#FFCC80] flex flex-col items-center justify-center px-6 py-12 text-center rounded-l-lg text-white">
+        <h2 class="font-semibold text-lg mb-6">Welcome Back to CourseMap</h2>
+        <img src="/static/icons/uploads/icon1.png" alt="CourseMap Illustration" class="mx-auto mb-6" width="240" height="240"/>
+        <p class="text-sm text-white max-w-xs">Ready to continue your learning journey?<br>Log in to access your courses.</p>
+      </div>
+      <!-- Right -->
+      <div class="login-form-container md:w-2/3 pattern-bg flex flex-col justify-center px-6 md:px-10 py-12 rounded-r-lg">
+        <h2 class="font-semibold text-lg mb-4 text-center md:text-left text-[#5D4037]">Log In</h2>
+
+        <!-- 🔥 ADDED: Error message -->
+        {% if request.args.get('alert') == 'login_failed' %}
+          <div class="mb-4 text-red-600 text-sm font-semibold text-center">
+            Incorrect email or password.
+          </div>
+        {% endif %}
+
+        <form class="space-y-4 max-w-xl mx-auto md:mx-0" method="POST" action="{{ url_for('login') }}">
+          <input name="email" class="border border-[#FF7043] rounded px-3 py-2 w-full text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#FF7043] focus:border-[#FF7043] focus:text-gray-900 transition-all duration-300" placeholder="Email" type="email" required/>
+          <div class="relative">
+            <input name="password" id="loginPassword" class="border border-[#FF7043] rounded px-3 py-2 w-full text-sm text-gray-800 pr-10 transition-all duration-300" placeholder="Password" type="password" required/>
+            <button type="button" onclick="togglePassword('loginPassword','loginEye')" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-600">
+              <i class="fas fa-eye" id="loginEye"></i>
+            </button>
+          </div>
+          <button type="submit" class="w-full bg-[#6D4C41] text-white font-semibold py-2 rounded text-sm hover:bg-[#5D4037] transition-colors">Log In</button>
+          <div class="flex items-center justify-center space-x-3 text-gray-400 text-xs">
+            <span class="border-t border-gray-300 flex-grow"></span>
+            <span>or</span>
+            <span class="border-t border-gray-300 flex-grow"></span>
+          </div>
+          <button type="button" class="w-full border border-gray-300 rounded py-2 text-xs flex items-center justify-center space-x-2 hover:bg-orange-50 transition-colors">
+            <img src="https://static.vecteezy.com/system/resources/previews/022/484/503/non_2x/google-lens-icon-logo-symbol-free-png.png" width="20" height="20" class="w-5 h-5" alt="Google logo" />
+            <span class="text-[#5D4037]">Continue with Google</span>
+          </button>
+        </form>
+        <div class="mt-6 text-center text-sm text-gray-700">
+          Don't have an account? <button onclick="openRegisterModal()" class="text-[#FF7043] font-semibold hover:underline">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- REGISTER MODAL -->
+<div id="registerModal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-60 z-50 overflow-auto transition-opacity duration-300">
+  <div class="bg-white rounded-lg shadow-lg max-w-6xl w-full mx-4 relative transform scale-95 opacity-0 transition-all duration-300">
+    <button onclick="closeRegisterModal()" class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-2xl">&times;</button>
+    <div class="w-full flex flex-col md:flex-row min-h-[600px] bg-white bg-opacity-95 rounded-lg shadow-lg">
+      <!-- Left -->
+      <div class="left-panel md:w-1/3 bg-gradient-to-r from-[#6D4C41] to-[#FFCC80] flex flex-col items-center justify-center px-6 py-12 text-center rounded-l-lg text-white">
+        <h2 class="font-semibold text-lg mb-6">Welcome to CourseMap</h2>
+        <img src="/static/icons/uploads/icon1.png" alt="CourseMap Illustration" class="mx-auto mb-6" width="240" height="240"/>
+        <p class="text-sm text-white max-w-xs">Still not sure what to take?<br>Let CourseMap help.</p>
+      </div>
+      <!-- Right -->
+      <div class="register-form-container md:w-2/3 pattern-bg flex flex-col justify-center px-10 py-12 rounded-r-lg">
+        <h2 class="font-semibold text-lg mb-8 text-center md:text-left text-[#5D4037]">Create Account</h2>
+        <form class="space-y-4 max-w-xl mx-auto md:mx-0" method="POST" action="{{ url_for('register') }}">
+          <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+            <input name="first_name" autocomplete="given-name" class="border border-[#FF7043] rounded px-3 py-2 w-full text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#FF7043] focus:border-[#FF7043] focus:text-gray-900 transition-all duration-300" placeholder="First Name" type="text" required/>
+            <input name="last_name" autocomplete="family-name" class="border border-[#FF7043] rounded px-3 py-2 w-full text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#FF7043] focus:border-[#FF7043] focus:text-gray-900 transition-all duration-300" placeholder="Last Name" type="text" required/>
+          </div>
+          <input name="email" autocomplete="email" class="border border-[#FF7043] rounded px-3 py-2 w-full text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#FF7043] focus:border-[#FF7043] focus:text-gray-900 transition-all duration-300" placeholder="Email" type="email" required/>
+          <div class="relative">
+  <input name="password" id="registerPassword" autocomplete="new-password" class="border border-[#FF7043] rounded px-3 py-2 w-full text-sm text-gray-800 pr-10 transition-all duration-300" placeholder="Password" type="password" required/>
+  <button type="button" onclick="togglePassword('registerPassword','registerEye')" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-600">
+    <i class="fas fa-eye" id="registerEye"></i>
+  </button>
+</div>
+<div class="relative">
+  <input name="confirm_password" id="confirmPassword" autocomplete="new-password" class="border border-[#FF7043] rounded px-3 py-2 w-full text-sm text-gray-800 pr-10 transition-all duration-300" placeholder="Confirm Password" type="password" required/>
+  <button type="button" onclick="togglePassword('confirmPassword','confirmEye')" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-600">
+    <i class="fas fa-eye" id="confirmEye"></i>
+  </button>
+</div>
+          <button class="w-full bg-[#6D4C41] text-white font-semibold py-2 rounded text-sm hover:bg-[#5D4037] transition-colors" type="submit">Sign Up</button>
+        </form>
+        <div class="mt-6 text-center text-sm text-gray-700">
+          Already have an account? <button onclick="switchToLogin()" class="text-[#FF7043] font-semibold hover:underline">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleMenu(id, event) {
+  event.preventDefault();
+  document.querySelectorAll(".dropdown-wrapper").forEach(wrapper => {
+    if (wrapper.querySelector(".dropdown-menu").id === id) {
+      wrapper.classList.toggle("open");
+      wrapper.querySelector(".dropdown-menu").classList.toggle("show");
+    } else {
+      wrapper.classList.remove("open");
+      wrapper.querySelector(".dropdown-menu").classList.remove("show");
+    }
+  });
+}
+
+document.addEventListener("click", function (event) {
+  if (!event.target.closest(".dropdown-wrapper")) {
+    document.querySelectorAll(".dropdown-menu").forEach(menu => menu.classList.remove("show"));
+    document.querySelectorAll(".dropdown-wrapper").forEach(wrapper => wrapper.classList.remove("open"));
+  }
+});
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  loader.classList.add("hidden");
+  {% if user and user.full_name %}
+    const target = document.getElementById("typewriter");
+    const isNewUser = {{ 'true' if is_new_user else 'false' }};
+    const text = isNewUser
+      ? "Welcome back, {{ user.full_name }}!"
+      : "Welcome, {{ user.full_name }}!";
+    let i = 0;
+    const speed = 70;
+    target.textContent = "";
+    function typeWriter() {
+      if (i < text.length) {
+        target.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    typeWriter();
+  {% endif %}
+});
+
+function toggleUserDrawer() {
+  const drawer = document.getElementById("user-drawer");
+  const overlay = document.getElementById("drawer-overlay");
+  const isOpen = !drawer.classList.contains("translate-x-full");
+
+  if (isOpen) {
+    drawer.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+  } else {
+    drawer.classList.remove("translate-x-full");
+    overlay.classList.remove("hidden");
+  }
+}
+
+function openLoginModal() {
+  const modal = document.getElementById("loginModal");
+  const content = modal.querySelector("div");
+
+  modal.classList.remove("hidden");
+  setTimeout(() => {
+    modal.classList.add("flex");
+    content.classList.remove("scale-95", "opacity-0");
+    content.classList.add("scale-100", "opacity-100");
+  }, 10);
+}
+
+function closeLoginModal() {
+  const modal = document.getElementById("loginModal");
+  const content = modal.querySelector("div");
+
+  content.classList.remove("scale-100", "opacity-100");
+  content.classList.add("scale-95", "opacity-0");
+  setTimeout(() => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }, 300); // match transition duration
+}
+
+  window.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("alert") === "login_failed") {
+      openLoginModal();
+    }
+  });
+
+function openRegisterModal() {
+  const modal = document.getElementById("registerModal");
+  const content = modal.querySelector("div");
+
+  modal.classList.remove("hidden");
+  setTimeout(() => {
+    modal.classList.add("flex");
+    content.classList.remove("scale-95", "opacity-0");
+    content.classList.add("scale-100", "opacity-100");
+  }, 10);
+}
+
+function closeRegisterModal() {
+  const modal = document.getElementById("registerModal");
+  const content = modal.querySelector("div");
+
+  content.classList.remove("scale-100", "opacity-100");
+  content.classList.add("scale-95", "opacity-0");
+  setTimeout(() => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }, 300); // match transition duration
+}
+
+function togglePassword(inputId, iconId){
+  const input = document.getElementById(inputId);
+  const icon = document.getElementById(iconId);
+  if(input.type === 'password'){ 
+    input.type='text'; 
+    icon.classList.replace('fa-eye','fa-eye-slash'); 
+  } else { 
+    input.type='password'; 
+    icon.classList.replace('fa-eye-slash','fa-eye'); 
+  }
+}
+
+// Validate password match before submitting
+document.querySelector("#registerModal form").addEventListener("submit", function(e) {
+  const password = document.getElementById("registerPassword").value;
+  const confirm = document.getElementById("confirmPassword").value;
+  if (password !== confirm) {
+    e.preventDefault(); // stop form submission
+    alert("Passwords do not match!");
+  }
+});
+
+// Check URL for register_alert
+const urlParams = new URLSearchParams(window.location.search);
+const registerAlert = urlParams.get('register_alert');
+
+if (registerAlert) {
+    if (registerAlert === 'success') {
+        alert('Registered successfully!');
+        // Do NOT open login modal
+    } else if (registerAlert === 'email_exists') {
+        alert('This email is already registered.');
+        openRegisterModal();
+    } else if (registerAlert === 'password_mismatch') {
+        alert('Passwords do not match.');
+        openRegisterModal();
+    }
+
+    // Clean URL so refresh doesn't repeat alert
+    const newUrl = window.location.href.split('?')[0];
+    window.history.replaceState({}, document.title, newUrl);
+}
+
+function switchToLogin() {
+  // Close register modal first
+  closeRegisterModal();
+  // Open login modal right after (wait for the close animation to finish)
+  setTimeout(() => {
+    openLoginModal();
+  }, 300); // match the 300ms transition you already use
+}
+
+</script>
+
+</body>
+</html>

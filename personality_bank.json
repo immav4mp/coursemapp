@@ -1,0 +1,70 @@
+{
+  "stem": {
+    "personality": [
+      { "id": 1, "question": "I enjoy solving practical problems and finding efficient solutions." },
+      { "id": 2, "question": "I am interested in computers and enjoy learning new technologies." },
+      { "id": 3, "question": "I like working with electrical systems or circuits." },
+      { "id": 4, "question": "I enjoy analyzing and improving electronic devices or systems." },
+      { "id": 5, "question": "I like planning, organizing, and managing processes effectively." },
+      { "id": 6, "question": "I enjoy designing machines and understanding how mechanical systems work." },
+      { "id": 7, "question": "I am creative and enjoy designing buildings or structures." },
+      { "id": 8, "question": "I enjoy working with software, apps, or programming projects." },
+      { "id": 9, "question": "I like organizing data and solving problems with information systems." },
+      { "id": 10, "question": "I enjoy solving logical problems and exploring algorithms." },
+      { "id": 11, "question": "I am curious about living things and how they function." },
+      { "id": 12, "question": "I enjoy working with numbers and solving mathematical problems." },
+      { "id": 13, "question": "I like interpreting data and drawing meaningful conclusions from it." },
+      { "id": 14, "question": "I care about the environment and want to solve ecological problems." },
+      { "id": 15, "question": "I enjoy helping people and working in healthcare settings." }
+    ]
+  },
+  "abm": {
+    "personality": [
+      { "id": 16, "question": "I enjoy promoting ideas, products, or services to people." },
+      { "id": 17, "question": "I like analyzing markets and studying economic trends." },
+      { "id": 18, "question": "I enjoy starting new projects and creating my own business ideas." },
+      { "id": 19, "question": "I pay attention to detail and enjoy working with financial records." },
+      { "id": 20, "question": "I like organizing financial data and using technology for accounting tasks." },
+      { "id": 21, "question": "I am interested in public service and helping manage community programs." },
+      { "id": 22, "question": "I am interested in property, housing, or business spaces." },
+      { "id": 23, "question": "I like learning about laws and how they are applied in business." },
+      { "id": 24, "question": "I enjoy planning, organizing, and managing the flow of goods and services." }
+    ]
+  },
+  "humss": {
+    "personality": [
+      { "id": 25, "question": "I enjoy teaching and helping young learners understand lessons." },
+      { "id": 26, "question": "I like guiding children and supporting their early development." },
+      { "id": 27, "question": "I enjoy reading, writing, and teaching the English language." },
+      { "id": 28, "question": "I am proud of my culture and enjoy teaching the Filipino language." },
+      { "id": 29, "question": "I like solving math problems and helping others understand them." },
+      { "id": 30, "question": "I am interested in history, society, and teaching social studies." },
+      { "id": 31, "question": "I am curious about science and enjoy explaining scientific concepts." },
+      { "id": 32, "question": "I enjoy planning lessons and finding better ways to teach." },
+      { "id": 33, "question": "I like being active and encouraging others to stay fit." },
+      { "id": 34, "question": "I enjoy expressing creativity through art, music, or performance." },
+      { "id": 35, "question": "I like cooking, designing, and managing household-related activities." },
+      { "id": 36, "question": "I enjoy crafting, building, or working on industrial projects." },
+      { "id": 37, "question": "I am interested in food service and hospitality management." },
+      { "id": 38, "question": "I enjoy designing clothes and exploring fashion trends." },
+      { "id": 39, "question": "I like learning and teaching practical vocational skills." },
+      { "id": 40, "question": "I enjoy sports and want to help manage athletic programs." },
+      { "id": 41, "question": "I like coaching and motivating others in physical activities." }
+    ]
+  },
+  "gas": {
+    "personality": [
+      { "id": 42, "question": "I am curious about human behavior and how people think and feel." },
+      { "id": 43, "question": "I enjoy helping individuals and communities improve their lives." },
+      { "id": 44, "question": "I like studying people, society, and how groups interact." },
+      { "id": 45, "question": "I want to help individuals and families solve personal challenges." },
+      { "id": 46, "question": "I am interested in supporting people through community and social services." },
+      { "id": 47, "question": "I enjoy planning and managing hospitality services for people." },
+      { "id": 48, "question": "I am interested in exploring new places and cultures." },
+      { "id": 49, "question": "I enjoy organizing and managing events for groups or communities." },
+      { "id": 50, "question": "I like working with computers and learning about technology." }
+    ]
+  }
+}
+
+

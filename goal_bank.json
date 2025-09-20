@@ -1,0 +1,50 @@
+{
+  "stem": [
+    { "id": 1, "question": "I aim to design and build sustainable infrastructure as a Civil Engineer." },
+    { "id": 2, "question": "I want to develop innovative computer hardware and software solutions as a Computer Engineer." },
+    { "id": 3, "question": "My goal is to work in power systems and energy solutions as an Electrical Engineer." },
+    { "id": 4, "question": "I want to create and improve electronic devices as an Electronics Engineer." },
+    { "id": 5, "question": "I aim to optimize processes and productivity as an Industrial Engineer." },
+    { "id": 6, "question": "My goal is to design machines and improve mechanical systems as a Mechanical Engineer." },
+    { "id": 7, "question": "I want to design buildings and structures as an Architect." },
+    { "id": 8, "question": "I aim to work in software development, networking, or cybersecurity in the field of Information Technology." },
+    { "id": 9, "question": "My goal is to manage information systems for organizations and businesses." },
+    { "id": 10, "question": "I want to innovate in programming, algorithms, and computing as a Computer Scientist." }
+  ],
+  "abm": [
+    { "id": 11, "question": "I aim to build a career in marketing, helping businesses grow through effective strategies." },
+    { "id": 12, "question": "I want to analyze markets and economic trends as a Business Economist." },
+    { "id": 13, "question": "My goal is to start and grow my own successful business as an Entrepreneur." },
+    { "id": 14, "question": "I want to become a Certified Public Accountant and manage financial records with integrity." },
+    { "id": 15, "question": "I aim to specialize in Accounting Information Systems to improve financial data management." },
+    { "id": 16, "question": "My goal is to serve in government institutions through a career in Public Administration." },
+    { "id": 17, "question": "I want to become a licensed Real Estate Manager and help clients with property investments." },
+    { "id": 18, "question": "I aim to study Legal Management to prepare for law school or corporate legal services." },
+    { "id": 19, "question": "My goal is to work in logistics and supply chain management to ensure efficient global trade." },
+    { "id": 20, "question": "I want to pursue leadership roles in business administration to manage organizations effectively." }
+  ],
+  "humss": [
+    { "id": 21, "question": "I aim to become an inspiring Elementary Teacher who shapes young learners in General Education." },
+    { "id": 22, "question": "I want to specialize in Early Childhood Education to help children build strong learning foundations." },
+    { "id": 23, "question": "My goal is to teach English effectively and guide students to communicate with confidence." },
+    { "id": 24, "question": "I want to promote love for Filipino language and culture as a Filipino Teacher." },
+    { "id": 25, "question": "I aim to become a Mathematics Teacher who helps students understand and enjoy numbers." },
+    { "id": 26, "question": "My goal is to teach Social Studies and inspire students to be responsible citizens." },
+    { "id": 27, "question": "I want to teach General Science and encourage curiosity about the natural world." },
+    { "id": 28, "question": "I aim to apply innovative teaching methods to make learning more engaging and effective." },
+    { "id": 29, "question": "My goal is to promote health and physical fitness as a Physical Education Teacher." },
+    { "id": 30, "question": "I want to pursue a career in Culture and Arts Education to preserve and promote creativity." }
+  ],
+  "gas": [
+    { "id": 31, "question": "I aim to become a Psychologist who helps people understand and improve their mental health." },
+    { "id": 32, "question": "I want to build a career in Human Services to support individuals and communities in need." },
+    { "id": 33, "question": "My goal is to study Sociology and contribute to solving social issues through research and action." },
+    { "id": 34, "question": "I want to become a Social Worker who advocates for children, families, and marginalized groups." },
+    { "id": 35, "question": "I aim to take the fast-track Social Work program and start serving communities as early as possible." },
+    { "id": 36, "question": "My goal is to pursue Hospitality Management and provide excellent guest services in the hotel industry." },
+    { "id": 37, "question": "I want to build a career in Tourism Management and promote local and international travel destinations." },
+    { "id": 38, "question": "I aim to specialize in Events Management and organize successful tourism and hospitality events." },
+    { "id": 39, "question": "My goal is to become skilled in Computer Technology and support businesses with IT solutions." },
+    { "id": 40, "question": "I want to pursue leadership opportunities in the General Academic Strand to prepare for diverse careers." }
+  ]
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personality Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/personality.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <h2>Personality Test</h2>
+
+    <form method="POST" id="personalityForm">
+      {% for q in questions %}
+        <div class="question {% if loop.index == 1 %}active{% endif %}" data-question-index="{{ loop.index0 }}">
+          <p><strong>Question {{ loop.index }}:</strong> {{ q.question }}</p>
+
+          <!-- Likert Scale -->
+          <div class="likert-scale">
+            <input type="radio" id="q{{ q.id }}1" name="q{{ q.id }}" value="1">
+            <label for="q{{ q.id }}1">Strongly Disagree</label>
+
+            <input type="radio" id="q{{ q.id }}2" name="q{{ q.id }}" value="2">
+            <label for="q{{ q.id }}2">Disagree</label>
+
+            <input type="radio" id="q{{ q.id }}3" name="q{{ q.id }}" value="3">
+            <label for="q{{ q.id }}3">Neutral</label>
+
+            <input type="radio" id="q{{ q.id }}4" name="q{{ q.id }}" value="4">
+            <label for="q{{ q.id }}4">Agree</label>
+
+            <input type="radio" id="q{{ q.id }}5" name="q{{ q.id }}" value="5">
+            <label for="q{{ q.id }}5">Strongly Agree</label>
+          </div>
+
+          <!-- Navigation -->
+          <button type="button" class="btn next-btn">
+            {% if loop.last %}Finish{% else %}Submit{% endif %}
+          </button>
+        </div>
+      {% endfor %}
+    </form>
+  </div>
+
+  <script>
+    const questions = document.querySelectorAll('.question');
+    const progressBar = document.getElementById('progressBar');
+    let currentIndex = 0;
+
+    function updateProgress() {
+      const percent = ((currentIndex + 1) / questions.length) * 100;
+      progressBar.style.width = percent + '%';
+    }
+
+    document.querySelectorAll('.next-btn').forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        const currentQuestion = questions[index];
+        const selected = currentQuestion.querySelector('input[type="radio"]:checked');
+
+        if (!selected) {
+          alert("Please select an answer before continuing.");
+          return;
+        }
+
+        currentQuestion.classList.remove('active');
+
+        if (index + 1 < questions.length) {
+          questions[index + 1].classList.add('active');
+          currentIndex++;
+          updateProgress();
+        } else {
+          document.getElementById('personalityForm').submit();
+        }
+      });
+    });
+
+    // Allow deselecting radio
+    document.querySelectorAll('.likert-scale input[type="radio"]').forEach(radio => {
+      radio.addEventListener('click', function() {
+        if (this.previousChecked) {
+          this.checked = false;
+        }
+        this.closest('.likert-scale').querySelectorAll('input[type="radio"]').forEach(r => {
+          r.previousChecked = false;
+        });
+        this.previousChecked = this.checked;
+      });
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>

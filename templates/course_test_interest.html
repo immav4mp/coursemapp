@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interest Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/interest.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <h2>Interest Test - {{ strand }}</h2>
+
+    <form method="POST" id="interestForm">
+        {% for q in questions %}
+            <div class="question {% if loop.index == 1 %}active{% endif %}" data-question-index="{{ loop.index0 }}">
+                <p><strong>{{ q.course }}</strong></p>
+                <p>{{ q.question }}</p>
+
+                <select name="q_{{ q.id }}" required>
+                    <option value="">Select your interest level</option>
+                    <option value="1">{{ q.option_a }}</option>
+                    <option value="2">{{ q.option_b }}</option>
+                    <option value="3">{{ q.option_c }}</option>
+                </select>
+
+                <button type="button" class="btn next-btn">
+                    {% if loop.last %}Finish{% else %}Next{% endif %}
+                </button>
+            </div>
+        {% endfor %}
+    </form>
+</div>
+
+<script>
+    const questions = document.querySelectorAll('.question');
+    const progressBar = document.getElementById('progressBar');
+    let currentIndex = 0;
+
+    function updateProgress() {
+        const percent = ((currentIndex + 1) / questions.length) * 100;
+        progressBar.style.width = percent + '%';
+    }
+
+    document.querySelectorAll('.next-btn').forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            const currentQuestion = questions[index];
+            const select = currentQuestion.querySelector('select');
+
+            if (!select.value) {
+                alert("Please select an option before continuing.");
+                return;
+            }
+
+            currentQuestion.classList.remove('active');
+
+            if (index + 1 < questions.length) {
+                questions[index + 1].classList.add('active');
+                currentIndex++;
+                updateProgress();
+            } else {
+                document.getElementById('interestForm').submit();
+            }
+        });
+    });
+
+    updateProgress();
+</script>
+</body>
+</html>

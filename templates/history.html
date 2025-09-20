@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>History - CourseMAP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#2c1e1e] min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-[#4b2e2e] text-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-orange-400">📜 Test History</h1>
+      <div class="space-x-3">
+        <a href="{{ url_for('index') }}" 
+           class="text-sm bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg shadow">
+          ⬅ Back Home
+        </a>
+        <a href="{{ url_for('dashboard') }}" 
+           class="text-sm bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg shadow">
+          ⬅ Back to Dashboard
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-5xl mx-auto p-6">
+    {% if history and history|length > 0 %}
+      <div class="space-y-6">
+        {% for record in history|reverse %}
+        <div class="bg-white rounded-2xl shadow-md p-6 border-l-4 border-orange-500">
+
+          <!-- Date & Top Course -->
+          <div class="flex justify-between items-center mb-4">
+            <p class="text-sm text-gray-500">🗓 
+              {{ record.date | format_datetime }}
+            </p>
+            <div class="flex items-center space-x-2">
+              <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-lg text-sm font-semibold">
+                ⭐ Top: {{ record.suggested_course }}
+              </span>
+              <!-- Delete button -->
+              <form action="{{ url_for('delete_history', index=loop.index0) }}" method="POST">
+                <button type="submit" 
+                        class="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-lg shadow">
+                  🗑 Delete
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Suggested Courses -->
+          <p class="text-lg font-semibold text-[#4b2e2e]">
+            Suggested Courses:
+            <span class="text-orange-600">{{ record.top_courses | join(', ') }}</span>
+          </p>
+
+          <!-- Scores -->
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+            <div class="p-3 bg-gray-100 rounded-lg">
+              <span class="font-bold text-orange-700">Knowledge:</span>
+              <span>{{ record.scores.knowledge }}</span>
+            </div>
+            <div class="p-3 bg-gray-100 rounded-lg">
+              <span class="font-bold text-orange-700">Interest:</span>
+              <span>{{ record.scores.interest }}</span>
+            </div>
+            <div class="p-3 bg-gray-100 rounded-lg">
+              <span class="font-bold text-orange-700">Aptitude:</span>
+              <span>{{ record.scores.aptitude }}</span>
+            </div>
+            <div class="p-3 bg-gray-100 rounded-lg">
+              <span class="font-bold text-orange-700">Personality:</span>
+              <span>{{ record.scores.personality }}</span>
+            </div>
+            <div class="p-3 bg-gray-100 rounded-lg">
+              <span class="font-bold text-orange-700">Goal:</span>
+              <span>{{ record.scores.goal }}</span>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-center text-gray-300 mt-12 text-lg italic">
+        No test history yet. Take a test to see results here!
+      </p>
+    {% endif %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#4b2e2e] text-white text-center py-3 mt-6">
+    <p class="text-sm">© 2025 CourseMAP | History</p>
+  </footer>
+
+</body>
+</html>

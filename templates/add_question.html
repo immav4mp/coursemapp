@@ -1,0 +1,65 @@
+<!-- templates/add_question.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Question - CourseMAP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+
+  <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow">
+    <h1 class="text-2xl font-bold text-gray-800 mb-4">Add Question</h1>
+
+    <form method="POST" action="{{ url_for('add_question') }}">
+  <!-- Strand -->
+  <label class="block mb-2 font-semibold">Strand</label>
+  <select name="strand" required class="w-full border p-2 rounded mb-4">
+    {% for strand in question_bank.keys() %}
+      <option value="{{ strand }}">{{ strand|upper }}</option>
+    {% endfor %}
+  </select>
+
+  <!-- Category -->
+  <label class="block mb-2 font-semibold">Category</label>
+  <select name="category" required class="w-full border p-2 rounded mb-4">
+    <option value="knowledge">Knowledge</option>
+    <option value="interest">Interest</option>
+    <option value="aptitude">Aptitude</option>
+    <option value="personality">Personality</option>
+    <option value="goal">Goal</option>
+  </select>
+
+  <!-- Course -->
+  <label class="block mb-2 font-semibold">Course</label>
+  <input type="text" name="course" required class="w-full border p-2 rounded mb-4">
+
+  <!-- Question -->
+  <label class="block mb-2 font-semibold">Question</label>
+  <textarea name="question" required class="w-full border p-2 rounded mb-4"></textarea>
+
+  <!-- Options -->
+  <label class="block mb-2 font-semibold">Options</label>
+  <input type="text" name="option_a" placeholder="Option A" required class="w-full border p-2 rounded mb-2">
+  <input type="text" name="option_b" placeholder="Option B" required class="w-full border p-2 rounded mb-2">
+  <input type="text" name="option_c" placeholder="Option C" required class="w-full border p-2 rounded mb-2">
+  <input type="text" name="option_d" placeholder="Option D" required class="w-full border p-2 rounded mb-2">
+
+  <!-- Correct Answer -->
+  <label class="block mb-2 font-semibold">Correct Answer</label>
+  <select name="answer" required class="w-full border p-2 rounded mb-4">
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+  </select>
+
+  <div class="flex justify-end">
+    <a href="{{ url_for('admin_dashboard') }}" class="mr-4 text-gray-600 hover:underline">Cancel</a>
+    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Save Question</button>
+  </div>
+</form>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+[
+  {
+    "date": "2025-09-19 11:24",
+    "suggested_course": "Bachelor of Science in Business Administration Major in Marketing Management",
+    "knowledge_top3": [
+      "Bachelor of Science in Business Administration Major in Marketing Management",
+      "Bachelor of Science in Entrepreneurship",
+      "Bachelor of Science in Business Administration Major in Business Economics"
+    ],
+    "scores": {
+      "knowledge": "8/30",
+      "interest": "90%",
+      "aptitude": "3/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 11:29",
+    "suggested_course": "Bachelor of Science in Logistics and Supply Chain Management",
+    "knowledge_top3": [
+      "Bachelor of Science in Logistics and Supply Chain Management",
+      "Bachelor of Science in Accountancy",
+      "Bachelor of Science in Real Estate Management"
+    ],
+    "scores": {
+      "knowledge": "9/30",
+      "interest": "90%",
+      "aptitude": "0/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  }
+]

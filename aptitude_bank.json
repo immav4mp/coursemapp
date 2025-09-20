@@ -1,0 +1,618 @@
+{
+  "abm": {
+    "aptitude": [
+      {
+        "id": 431,
+        "question": "If you sell 10 items at ₱20 each, what is your total sales?",
+        "course": "BSBA Major in Marketing Management",
+        "option_a": "₱100",
+        "option_b": "₱150",
+        "option_c": "₱200",
+        "option_d": "₱250",
+        "answer": "C"
+      },
+      {
+        "id": 432,
+        "question": "If the price of a product increases from ₱100 to ₱120, what is the increase?",
+        "course": "BSBA Major in Business Economics",
+        "option_a": "₱10",
+        "option_b": "₱15",
+        "option_c": "₱20",
+        "option_d": "₱25",
+        "answer": "C"
+      },
+      {
+        "id": 433,
+        "question": "You invested ₱500 and earned ₱100 profit. What is your total money now?",
+        "course": "BS in Entrepreneurship",
+        "option_a": "₱500",
+        "option_b": "₱600",
+        "option_c": "₱700",
+        "option_d": "₱800",
+        "answer": "B"
+      },
+      {
+        "id": 434,
+        "question": "If an accountant records 200 expenses and 50 incomes, how many records in total?",
+        "course": "BS in Accountancy",
+        "option_a": "150",
+        "option_b": "200",
+        "option_c": "250",
+        "option_d": "300",
+        "answer": "C"
+      },
+      {
+        "id": 435,
+        "question": "A company has 100 computers. 10 are broken. How many are working?",
+        "course": "BS in Accounting Information Systems",
+        "option_a": "80",
+        "option_b": "85",
+        "option_c": "90",
+        "option_d": "95",
+        "answer": "C"
+      },
+      {
+        "id": 436,
+        "question": "If you sell ₱1,000 worth of goods and spend ₱700, what is your profit?",
+        "course": "BSBA in Marketing",
+        "option_a": "₱100",
+        "option_b": "₱200",
+        "option_c": "₱300",
+        "option_d": "₱400",
+        "answer": "C"
+      },
+      {
+        "id": 437,
+        "question": "If sales are ₱500 and expenses are ₱200, what is net income?",
+        "course": "BSBA in Business Economics",
+        "option_a": "₱200",
+        "option_b": "₱250",
+        "option_c": "₱300",
+        "option_d": "₱350",
+        "answer": "C"
+      },
+      {
+        "id": 438,
+        "question": "If one share costs ₱50, how much is 10 shares?",
+        "course": "BS in Entrepreneurship",
+        "option_a": "₱400",
+        "option_b": "₱500",
+        "option_c": "₱600",
+        "option_d": "₱700",
+        "answer": "B"
+      },
+      {
+        "id": 439,
+        "question": "If you spend ₱250 and receive ₱500, what is your profit?",
+        "course": "BS in Accountancy",
+        "option_a": "₱150",
+        "option_b": "₱200",
+        "option_c": "₱250",
+        "option_d": "₱300",
+        "answer": "C"
+      },
+      {
+        "id": 440,
+        "question": "A store sells 20 pens at ₱5 each. What is the total sales?",
+        "course": "BSBA in Marketing",
+        "option_a": "₱50",
+        "option_b": "₱75",
+        "option_c": "₱100",
+        "option_d": "₱120",
+        "answer": "C"
+      },
+      {
+        "id": 441,
+        "question": "If 40% of ₱200 is spent, how much is left?",
+        "course": "BSBA in Business Economics",
+        "option_a": "₱100",
+        "option_b": "₱120",
+        "option_c": "₱140",
+        "option_d": "₱160",
+        "answer": "C"
+      },
+      {
+        "id": 442,
+        "question": "If revenue is ₱800 and expenses are ₱500, what is profit?",
+        "course": "BS in Accountancy",
+        "option_a": "₱200",
+        "option_b": "₱250",
+        "option_c": "₱300",
+        "option_d": "₱350",
+        "answer": "C"
+      },
+      {
+        "id": 443,
+        "question": "If a business sells 5 cakes at ₱100 each, what is the total sales?",
+        "course": "BS in Entrepreneurship",
+        "option_a": "₱300",
+        "option_b": "₱400",
+        "option_c": "₱500",
+        "option_d": "₱600",
+        "answer": "C"
+      },
+      {
+        "id": 444,
+        "question": "₱1,000 is borrowed with ₱100 interest. How much must be paid back?",
+        "course": "BS in Accounting Information Systems",
+        "option_a": "₱1,050",
+        "option_b": "₱1,100",
+        "option_c": "₱1,150",
+        "option_d": "₱1,200",
+        "answer": "B"
+      },
+      {
+        "id": 445,
+        "question": "If ₱600 is divided equally among 3 friends, how much does each get?",
+        "course": "BSBA in Marketing",
+        "option_a": "₱100",
+        "option_b": "₱150",
+        "option_c": "₱200",
+        "option_d": "₱250",
+        "answer": "C"
+      }
+    ]
+  },
+  "stem": {
+    "aptitude": [
+      {
+        "id": 446,
+        "question": "A bridge has 4 pillars. If 1 pillar is removed, how many are left?",
+        "course": "BS in Civil Engineering",
+        "option_a": "2",
+        "option_b": "3",
+        "option_c": "4",
+        "option_d": "5",
+        "answer": "B"
+      },
+      {
+        "id": 447,
+        "question": "A computer has 8 GB of memory. If you add 4 GB more, how much is the total?",
+        "course": "BS in Computer Engineering",
+        "option_a": "10 GB",
+        "option_b": "11 GB",
+        "option_c": "12 GB",
+        "option_d": "14 GB",
+        "answer": "C"
+      },
+      {
+        "id": 448,
+        "question": "If a light bulb uses 60 watts and you turn on 2 bulbs, how many watts are used?",
+        "course": "BS in Electrical Engineering",
+        "option_a": "60",
+        "option_b": "100",
+        "option_c": "120",
+        "option_d": "150",
+        "answer": "C"
+      },
+      {
+        "id": 449,
+        "question": "A machine makes 10 products in 1 hour. How many products in 3 hours?",
+        "course": "BS in Industrial Engineering",
+        "option_a": "20",
+        "option_b": "25",
+        "option_c": "30",
+        "option_d": "40",
+        "answer": "C"
+      },
+      {
+        "id": 450,
+        "question": "A patient needs 2 tablets per day. How many tablets in 5 days?",
+        "course": "BS in Nursing",
+        "option_a": "5",
+        "option_b": "8",
+        "option_c": "10",
+        "option_d": "12",
+        "answer": "C"
+      },
+      {
+        "id": 451,
+        "question": "Water boils at what temperature in Celsius?",
+        "course": "BS in Chemistry",
+        "option_a": "0°C",
+        "option_b": "50°C",
+        "option_c": "100°C",
+        "option_d": "150°C",
+        "answer": "C"
+      },
+      {
+        "id": 452,
+        "question": "If 1 meter = 100 cm, how many cm are in 2 meters?",
+        "course": "BS in Civil Engineering",
+        "option_a": "50",
+        "option_b": "100",
+        "option_c": "200",
+        "option_d": "300",
+        "answer": "C"
+      },
+      {
+        "id": 453,
+        "question": "A programmer writes 5 codes per day. How many in 4 days?",
+        "course": "BS in Computer Science",
+        "option_a": "15",
+        "option_b": "20",
+        "option_c": "25",
+        "option_d": "30",
+        "answer": "B"
+      },
+      {
+        "id": 454,
+        "question": "If a car travels 60 km in 1 hour, how far in 2 hours?",
+        "course": "BS in Mechanical Engineering",
+        "option_a": "60 km",
+        "option_b": "100 km",
+        "option_c": "120 km",
+        "option_d": "150 km",
+        "answer": "C"
+      },
+      {
+        "id": 455,
+        "question": "Which gas do humans breathe in for survival?",
+        "course": "BS in Biology",
+        "option_a": "Carbon dioxide",
+        "option_b": "Oxygen",
+        "option_c": "Nitrogen",
+        "option_d": "Helium",
+        "answer": "B"
+      },
+      {
+        "id": 456,
+        "question": "If a triangle has sides 3, 4, 5, what type is it?",
+        "course": "BS in Mathematics",
+        "option_a": "Equilateral",
+        "option_b": "Isosceles",
+        "option_c": "Scalene",
+        "option_d": "Right triangle",
+        "answer": "D"
+      },
+      {
+        "id": 457,
+        "question": "How many planets are in the solar system?",
+        "course": "BS in Astronomy",
+        "option_a": "7",
+        "option_b": "8",
+        "option_c": "9",
+        "option_d": "10",
+        "answer": "B"
+      },
+      {
+        "id": 458,
+        "question": "If an experiment is repeated many times, it is called?",
+        "course": "BS in Physics",
+        "option_a": "Trial",
+        "option_b": "Error",
+        "option_c": "Hypothesis",
+        "option_d": "Observation",
+        "answer": "A"
+      },
+      {
+        "id": 459,
+        "question": "The heart pumps what fluid in the body?",
+        "course": "BS in Nursing",
+        "option_a": "Water",
+        "option_b": "Air",
+        "option_c": "Blood",
+        "option_d": "Oxygen",
+        "answer": "C"
+      },
+      {
+        "id": 460,
+        "question": "Earth is the ___ planet from the sun.",
+        "course": "BS in Environmental Science",
+        "option_a": "1st",
+        "option_b": "2nd",
+        "option_c": "3rd",
+        "option_d": "4th",
+        "answer": "C"
+      }
+    ]
+  },
+  "humss": {
+    "aptitude": [
+      {
+        "id": 461,
+        "question": "If a teacher has 20 students and 5 are absent, how many are present?",
+        "course": "BSEd Major in General Education",
+        "option_a": "10",
+        "option_b": "15",
+        "option_c": "20",
+        "option_d": "25",
+        "answer": "B"
+      },
+      {
+        "id": 462,
+        "question": "Children learn best when lessons are?",
+        "course": "BS in Early Childhood Education",
+        "option_a": "Fun and simple",
+        "option_b": "Very difficult",
+        "option_c": "Too long",
+        "option_d": "Boring",
+        "answer": "A"
+      },
+      {
+        "id": 463,
+        "question": "Which subject focuses on reading and writing in English?",
+        "course": "BSEd Major in English",
+        "option_a": "Mathematics",
+        "option_b": "Filipino",
+        "option_c": "English",
+        "option_d": "Science",
+        "answer": "C"
+      },
+      {
+        "id": 464,
+        "question": "If Jose Rizal was born in 1861 and died in 1896, how old was he?",
+        "course": "BSEd Major in Social Studies",
+        "option_a": "32",
+        "option_b": "33",
+        "option_c": "34",
+        "option_d": "35",
+        "answer": "B"
+      },
+      {
+        "id": 465,
+        "question": "Which activity keeps the body strong and healthy?",
+        "course": "BS in Physical Education",
+        "option_a": "Sleeping all day",
+        "option_b": "Exercising",
+        "option_c": "Eating too much junk food",
+        "option_d": "Watching TV",
+        "answer": "B"
+      },
+      {
+        "id": 466,
+        "question": "Who wrote 'Noli Me Tangere'?",
+        "course": "BSEd Major in Filipino",
+        "option_a": "Andres Bonifacio",
+        "option_b": "Jose Rizal",
+        "option_c": "Emilio Aguinaldo",
+        "option_d": "Apolinario Mabini",
+        "answer": "B"
+      },
+      {
+        "id": 467,
+        "question": "What is the opposite of 'happy'?",
+        "course": "BSEd Major in English",
+        "option_a": "Excited",
+        "option_b": "Sad",
+        "option_c": "Angry",
+        "option_d": "Joyful",
+        "answer": "B"
+      },
+      {
+        "id": 468,
+        "question": "What does PE stand for in school subjects?",
+        "course": "BS in Physical Education",
+        "option_a": "Practical Education",
+        "option_b": "Physical Education",
+        "option_c": "Personal Effort",
+        "option_d": "Public Exam",
+        "answer": "B"
+      },
+      {
+        "id": 469,
+        "question": "What is the national language of the Philippines?",
+        "course": "BSEd Major in Filipino",
+        "option_a": "Cebuano",
+        "option_b": "English",
+        "option_c": "Tagalog",
+        "option_d": "Filipino",
+        "answer": "D"
+      },
+      {
+        "id": 470,
+        "question": "What is 5 + 10?",
+        "course": "BSEd in General Education",
+        "option_a": "12",
+        "option_b": "15",
+        "option_c": "18",
+        "option_d": "20",
+        "answer": "B"
+      },
+      {
+        "id": 471,
+        "question": "Who is known as the 'Father of Philippine Revolution'?",
+        "course": "BSEd Major in Social Studies",
+        "option_a": "Jose Rizal",
+        "option_b": "Andres Bonifacio",
+        "option_c": "Emilio Aguinaldo",
+        "option_d": "Manuel Quezon",
+        "answer": "B"
+      },
+      {
+        "id": 472,
+        "question": "Which body part helps us to see?",
+        "course": "BS in Physical Education",
+        "option_a": "Eyes",
+        "option_b": "Ears",
+        "option_c": "Nose",
+        "option_d": "Mouth",
+        "answer": "A"
+      },
+      {
+        "id": 473,
+        "question": "In literature, a story is also called?",
+        "course": "BSEd Major in English",
+        "option_a": "Novel",
+        "option_b": "Narrative",
+        "option_c": "Essay",
+        "option_d": "Play",
+        "answer": "B"
+      },
+      {
+        "id": 474,
+        "question": "What holiday is celebrated on June 12 in the Philippines?",
+        "course": "BSEd Major in Social Studies",
+        "option_a": "Independence Day",
+        "option_b": "Christmas",
+        "option_c": "Bonifacio Day",
+        "option_d": "New Year",
+        "answer": "A"
+      },
+      {
+        "id": 475,
+        "question": "What is the plural of 'child'?",
+        "course": "BS in Early Childhood Education",
+        "option_a": "Childs",
+        "option_b": "Children",
+        "option_c": "Childrens",
+        "option_d": "Childes",
+        "answer": "B"
+      }
+    ]
+  },
+"gas": {
+  "aptitude": [
+    {
+      "id": 476,
+      "question": "Which skill is MOST important for a psychologist?",
+      "course": "BS in Psychology",
+      "option_a": "Listening",
+      "option_b": "Swimming",
+      "option_c": "Singing",
+      "option_d": "Drawing",
+      "answer": "A"
+    },
+    {
+      "id": 477,
+      "question": "Which value is MOST needed in social work?",
+      "course": "BS in Social Work",
+      "option_a": "Empathy",
+      "option_b": "Dancing",
+      "option_c": "Cooking",
+      "option_d": "Singing",
+      "answer": "A"
+    },
+    {
+      "id": 478,
+      "question": "If a hotel has 100 rooms and 75 are occupied, what is the occupancy rate?",
+      "course": "BS in Hospitality Management",
+      "option_a": "65%",
+      "option_b": "70%",
+      "option_c": "75%",
+      "option_d": "80%",
+      "answer": "C"
+    },
+    {
+      "id": 479,
+      "question": "A tour costs ₱3,000. If you get a ₱500 discount, how much will you pay?",
+      "course": "BS in Tourism Management",
+      "option_a": "₱2,000",
+      "option_b": "₱2,500",
+      "option_c": "₱3,000",
+      "option_d": "₱3,500",
+      "answer": "B"
+    },
+    {
+      "id": 480,
+      "question": "A computer class has 25 students. If 5 are absent, how many are present?",
+      "course": "Associate in Computer Technology",
+      "option_a": "15",
+      "option_b": "18",
+      "option_c": "20",
+      "option_d": "22",
+      "answer": "C"
+    },
+    {
+      "id": 481,
+      "question": "Which subject is MOST helpful for learning law?",
+      "course": "Pre-Law (GAS)",
+      "option_a": "Science",
+      "option_b": "Mathematics",
+      "option_c": "Social Studies",
+      "option_d": "Arts",
+      "answer": "C"
+    },
+    {
+      "id": 482,
+      "question": "If a travel agency books 10 tours and 2 are cancelled, how many are left?",
+      "course": "BS in Tourism Management",
+      "option_a": "6",
+      "option_b": "7",
+      "option_c": "8",
+      "option_d": "9",
+      "answer": "D"
+    },
+    {
+      "id": 483,
+      "question": "Which activity BEST shows hospitality?",
+      "course": "BS in Hospitality Management",
+      "option_a": "Ignoring guests",
+      "option_b": "Welcoming guests politely",
+      "option_c": "Closing the door",
+      "option_d": "Asking guests to leave",
+      "answer": "B"
+    },
+    {
+      "id": 484,
+      "question": "If a psychologist schedules 5 sessions a day for 3 days, how many sessions total?",
+      "course": "BS in Psychology",
+      "option_a": "10",
+      "option_b": "12",
+      "option_c": "15",
+      "option_d": "20",
+      "answer": "C"
+    },
+    {
+      "id": 485,
+      "question": "Which personality trait is MOST useful in counseling?",
+      "course": "BS in Psychology",
+      "option_a": "Kindness",
+      "option_b": "Laziness",
+      "option_c": "Shyness",
+      "option_d": "Anger",
+      "answer": "A"
+    },
+    {
+      "id": 486,
+      "question": "If a social worker helps 10 families per week, how many in 4 weeks?",
+      "course": "BS in Social Work",
+      "option_a": "20",
+      "option_b": "30",
+      "option_c": "40",
+      "option_d": "50",
+      "answer": "C"
+    },
+    {
+      "id": 487,
+      "question": "Which quality is MOST needed in tourism?",
+      "course": "BS in Tourism Management",
+      "option_a": "Hospitality",
+      "option_b": "Silence",
+      "option_c": "Anger",
+      "option_d": "Laziness",
+      "answer": "A"
+    },
+    {
+      "id": 488,
+      "question": "Which tool is used in Computer Technology?",
+      "course": "Associate in Computer Technology",
+      "option_a": "Keyboard",
+      "option_b": "Paintbrush",
+      "option_c": "Microscope",
+      "option_d": "Stethoscope",
+      "answer": "A"
+    },
+    {
+      "id": 489,
+      "question": "A hotel serves 50 meals in the morning and 30 in the evening. How many total?",
+      "course": "BS in Hospitality Management",
+      "option_a": "70",
+      "option_b": "75",
+      "option_c": "80",
+      "option_d": "90",
+      "answer": "C"
+    },
+    {
+      "id": 490,
+      "question": "Which career is MOST related to helping people?",
+      "course": "BS in Social Work",
+      "option_a": "Chef",
+      "option_b": "Teacher",
+      "option_c": "Social Worker",
+      "option_d": "Engineer",
+      "answer": "C"
+     }
+    ]
+   }
+  }

@@ -1,0 +1,1093 @@
+{
+  "abm": {
+    "knowledge": [
+      {
+        "id": 101,
+        "question": "Which major of BSBA focuses on customer needs and market trends?",
+        "course": "Bachelor of Science in Business Administration Major in Marketing Management",
+        "option_a": "Business Economics",
+        "option_b": "Marketing Management",
+        "option_c": "Legal Management",
+        "option_d": "Logistics and Supply Chain",
+        "answer": "B"
+      },
+      {
+        "id": 102,
+        "question": "Which BSBA major studies economic theories applied to businesses?",
+        "course": "Bachelor of Science in Business Administration Major in Business Economics",
+        "option_a": "Marketing Management",
+        "option_b": "Business Economics",
+        "option_c": "Accounting Information Systems",
+        "option_d": "Entrepreneurship",
+        "answer": "B"
+      },
+      {
+        "id": 103,
+        "question": "Which program trains students to start and manage their own businesses?",
+        "course": "Bachelor of Science in Entrepreneurship",
+        "option_a": "Accountancy",
+        "option_b": "Entrepreneurship",
+        "option_c": "Finance",
+        "option_d": "Public Administration",
+        "answer": "B"
+      },
+      {
+        "id": 104,
+        "question": "Which program prepares students for professional licensure exams in accounting?",
+        "course": "Bachelor of Science in Accountancy",
+        "option_a": "Accounting Information Systems",
+        "option_b": "Entrepreneurship",
+        "option_c": "Accountancy",
+        "option_d": "Legal Management",
+        "answer": "C"
+      },
+      {
+        "id": 105,
+        "question": "Which program combines IT and accounting processes?",
+        "course": "Bachelor of Science in Accounting Information Systems",
+        "option_a": "Accounting Information Systems",
+        "option_b": "Accountancy",
+        "option_c": "Business Administration",
+        "option_d": "Entrepreneurship",
+        "answer": "A"
+      },
+      {
+        "id": 106,
+        "question": "Which program focuses on governance, policy, and public service?",
+        "course": "Bachelor of Public Administration",
+        "option_a": "Business Economics",
+        "option_b": "Public Administration",
+        "option_c": "Logistics and Supply Chain",
+        "option_d": "Real Estate Management",
+        "answer": "B"
+      },
+      {
+        "id": 107,
+        "question": "Which program studies property valuation and brokerage?",
+        "course": "Bachelor of Science in Real Estate Management",
+        "option_a": "Accounting",
+        "option_b": "Real Estate Management",
+        "option_c": "Logistics and Supply Chain",
+        "option_d": "Business Economics",
+        "answer": "B"
+      },
+      {
+        "id": 108,
+        "question": "Which program deals with laws, contracts, and corporate governance?",
+        "course": "Bachelor of Science in Legal Management",
+        "option_a": "Business Management",
+        "option_b": "Legal Management",
+        "option_c": "Entrepreneurship",
+        "option_d": "Finance",
+        "answer": "B"
+      },
+      {
+        "id": 109,
+        "question": "Which program trains students in managing supply chains and transport systems?",
+        "course": "Bachelor of Science in Logistics and Supply Chain Management",
+        "option_a": "Logistics and Supply Chain Management",
+        "option_b": "Business Administration",
+        "option_c": "Marketing Management",
+        "option_d": "Finance",
+        "answer": "A"
+      },
+
+      
+      {
+        "id": 110,
+        "question": "Which major studies consumer behavior and promotions?",
+        "course": "Bachelor of Science in Business Administration Major in Marketing Management",
+        "option_a": "Finance",
+        "option_b": "Marketing Management",
+        "option_c": "Economics",
+        "option_d": "Entrepreneurship",
+        "answer": "B"
+      },
+      {
+        "id": 111,
+        "question": "Which major studies demand, supply, and pricing in markets?",
+        "course": "Bachelor of Science in Business Administration Major in Business Economics",
+        "option_a": "Marketing",
+        "option_b": "Business Economics",
+        "option_c": "Accountancy",
+        "option_d": "Legal Management",
+        "answer": "B"
+      },
+      {
+        "id": 112,
+        "question": "Which program develops skills in innovation and startups?",
+        "course": "Bachelor of Science in Entrepreneurship",
+        "option_a": "Finance",
+        "option_b": "Entrepreneurship",
+        "option_c": "Economics",
+        "option_d": "Business Administration",
+        "answer": "B"
+      },
+      {
+        "id": 113,
+        "question": "Which course is required for Certified Public Accountant licensure?",
+        "course": "Bachelor of Science in Accountancy",
+        "option_a": "Accountancy",
+        "option_b": "Economics",
+        "option_c": "Public Administration",
+        "option_d": "Marketing",
+        "answer": "A"
+      },
+      {
+        "id": 114,
+        "question": "Which major integrates technology with financial recording?",
+        "course": "Bachelor of Science in Accounting Information Systems",
+        "option_a": "Accounting Information Systems",
+        "option_b": "Finance",
+        "option_c": "Economics",
+        "option_d": "Entrepreneurship",
+        "answer": "A"
+      },
+      {
+        "id": 115,
+        "question": "Which program prepares students for careers in government service?",
+        "course": "Bachelor of Public Administration",
+        "option_a": "Business Economics",
+        "option_b": "Legal Management",
+        "option_c": "Public Administration",
+        "option_d": "Real Estate Management",
+        "answer": "C"
+      },
+      {
+        "id": 116,
+        "question": "Which major studies land development and brokerage?",
+        "course": "Bachelor of Science in Real Estate Management",
+        "option_a": "Real Estate Management",
+        "option_b": "Accountancy",
+        "option_c": "Finance",
+        "option_d": "Public Administration",
+        "answer": "A"
+      },
+      {
+        "id": 117,
+        "question": "Which program teaches corporate law and governance?",
+        "course": "Bachelor of Science in Legal Management",
+        "option_a": "Legal Management",
+        "option_b": "Economics",
+        "option_c": "Public Administration",
+        "option_d": "Finance",
+        "answer": "A"
+      },
+      {
+        "id": 118,
+        "question": "Which course is about transport, warehousing, and delivery systems?",
+        "course": "Bachelor of Science in Logistics and Supply Chain Management",
+        "option_a": "Logistics and Supply Chain Management",
+        "option_b": "Marketing",
+        "option_c": "Finance",
+        "option_d": "Entrepreneurship",
+        "answer": "A"
+      },
+
+    
+      {
+        "id": 119,
+        "question": "Which program focuses on advertisements and sales promotions?",
+        "course": "Bachelor of Science in Business Administration Major in Marketing Management",
+        "option_a": "Finance",
+        "option_b": "Marketing Management",
+        "option_c": "Business Economics",
+        "option_d": "Entrepreneurship",
+        "answer": "B"
+      },
+      {
+        "id": 120,
+        "question": "Which program analyzes inflation and unemployment trends?",
+        "course": "Bachelor of Science in Business Administration Major in Business Economics",
+        "option_a": "Accountancy",
+        "option_b": "Business Economics",
+        "option_c": "Marketing",
+        "option_d": "Logistics",
+        "answer": "B"
+      },
+      {
+        "id": 121,
+        "question": "Which program focuses on starting small enterprises?",
+        "course": "Bachelor of Science in Entrepreneurship",
+        "option_a": "Entrepreneurship",
+        "option_b": "Public Administration",
+        "option_c": "Real Estate",
+        "option_d": "Finance",
+        "answer": "A"
+      },
+      {
+        "id": 122,
+        "question": "Which program includes auditing and taxation subjects?",
+        "course": "Bachelor of Science in Accountancy",
+        "option_a": "Accountancy",
+        "option_b": "Entrepreneurship",
+        "option_c": "Legal Management",
+        "option_d": "Economics",
+        "answer": "A"
+      },
+      {
+        "id": 123,
+        "question": "Which program links IT with accounting reports?",
+        "course": "Bachelor of Science in Accounting Information Systems",
+        "option_a": "Accounting Information Systems",
+        "option_b": "Marketing",
+        "option_c": "Entrepreneurship",
+        "option_d": "Finance",
+        "answer": "A"
+      },
+      {
+        "id": 124,
+        "question": "Which program emphasizes leadership and policymaking?",
+        "course": "Bachelor of Public Administration",
+        "option_a": "Economics",
+        "option_b": "Public Administration",
+        "option_c": "Marketing",
+        "option_d": "Accountancy",
+        "answer": "B"
+      },
+      {
+        "id": 125,
+        "question": "Which program deals with property appraisal and leasing?",
+        "course": "Bachelor of Science in Real Estate Management",
+        "option_a": "Finance",
+        "option_b": "Real Estate Management",
+        "option_c": "Marketing",
+        "option_d": "Logistics",
+        "answer": "B"
+      },
+      {
+        "id": 126,
+        "question": "Which course involves laws related to businesses?",
+        "course": "Bachelor of Science in Legal Management",
+        "option_a": "Legal Management",
+        "option_b": "Public Administration",
+        "option_c": "Economics",
+        "option_d": "Finance",
+        "answer": "A"
+      },
+      {
+        "id": 127,
+        "question": "Which program focuses on product distribution?",
+        "course": "Bachelor of Science in Logistics and Supply Chain Management",
+        "option_a": "Logistics and Supply Chain Management",
+        "option_b": "Marketing",
+        "option_c": "Finance",
+        "option_d": "Entrepreneurship",
+        "answer": "A"
+      },
+      {
+        "id": 128,
+        "question": "Which program covers sales and consumer psychology?",
+        "course": "Bachelor of Science in Business Administration Major in Marketing Management",
+        "option_a": "Marketing Management",
+        "option_b": "Business Economics",
+        "option_c": "Accountancy",
+        "option_d": "Public Administration",
+        "answer": "A"
+      },
+      {
+        "id": 129,
+        "question": "Which course studies supply and demand graphs?",
+        "course": "Bachelor of Science in Business Administration Major in Business Economics",
+        "option_a": "Business Economics",
+        "option_b": "Finance",
+        "option_c": "Legal Management",
+        "option_d": "Entrepreneurship",
+        "answer": "A"
+      },
+      {
+        "id": 130,
+        "question": "Which program focuses on creating business models?",
+        "course": "Bachelor of Science in Entrepreneurship",
+        "option_a": "Entrepreneurship",
+        "option_b": "Accountancy",
+        "option_c": "Economics",
+        "option_d": "Finance",
+        "answer": "A"
+      }
+    ]
+  },
+"humss": {
+  "knowledge": [
+    {
+      "id": 201,
+      "question": "Which education program trains students to teach all elementary subjects?",
+      "course": "Bachelor of Elementary Education Major in General Education",
+      "option_a": "Secondary Education",
+      "option_b": "Early Childhood Education",
+      "option_c": "Elementary Education",
+      "option_d": "Physical Education",
+      "answer": "C"
+    },
+    {
+      "id": 202,
+      "question": "Which program specializes in teaching young learners ages 3–8?",
+      "course": "Bachelor of Early Childhood Education",
+      "option_a": "General Education",
+      "option_b": "Early Childhood Education",
+      "option_c": "Filipino Education",
+      "option_d": "Mathematics Education",
+      "answer": "B"
+    },
+    {
+      "id": 203,
+      "question": "Which program prepares teachers for high school English?",
+      "course": "Bachelor of Secondary Education Major in English",
+      "option_a": "English Education",
+      "option_b": "Filipino Education",
+      "option_c": "General Science Education",
+      "option_d": "Industrial Arts",
+      "answer": "A"
+    },
+    {
+      "id": 204,
+      "question": "Which program focuses on teaching Filipino language and literature?",
+      "course": "Bachelor of Secondary Education Major in Filipino",
+      "option_a": "Filipino Education",
+      "option_b": "English Education",
+      "option_c": "General Education",
+      "option_d": "Arts Education",
+      "answer": "A"
+    },
+    {
+      "id": 205,
+      "question": "Which program trains teachers to teach algebra, geometry, and statistics?",
+      "course": "Bachelor of Secondary Education Major in Mathematics",
+      "option_a": "Social Studies",
+      "option_b": "Mathematics Education",
+      "option_c": "General Science",
+      "option_d": "Industrial Arts",
+      "answer": "B"
+    },
+    {
+      "id": 206,
+      "question": "Which program trains teachers to teach Philippine history and culture?",
+      "course": "Bachelor of Secondary Education Major in Social Studies",
+      "option_a": "Social Studies Education",
+      "option_b": "General Science Education",
+      "option_c": "Mathematics Education",
+      "option_d": "Physical Education",
+      "answer": "A"
+    },
+    {
+      "id": 207,
+      "question": "Which program focuses on teaching biology, chemistry, and physics?",
+      "course": "Bachelor of Secondary Education Major in General Science",
+      "option_a": "English Education",
+      "option_b": "General Science Education",
+      "option_c": "Social Studies",
+      "option_d": "Home Economics",
+      "answer": "B"
+    },
+    {
+      "id": 208,
+      "question": "Which course covers teaching strategies and classroom methods?",
+      "course": "Methods of Teaching",
+      "option_a": "Methods of Teaching",
+      "option_b": "General Education",
+      "option_c": "Industrial Arts",
+      "option_d": "Sports Coaching",
+      "answer": "A"
+    },
+    {
+      "id": 209,
+      "question": "Which program develops students in sports, fitness, and health?",
+      "course": "Bachelor of Physical Education",
+      "option_a": "Culture and Arts Education",
+      "option_b": "Physical Education",
+      "option_c": "Early Childhood Education",
+      "option_d": "Mathematics Education",
+      "answer": "B"
+    },
+    {
+      "id": 210,
+      "question": "Which program promotes teaching Filipino music, dance, and visual arts?",
+      "course": "Bachelor of Culture and Arts Education",
+      "option_a": "Culture and Arts Education",
+      "option_b": "General Education",
+      "option_c": "Industrial Arts",
+      "option_d": "Home Economics",
+      "answer": "A"
+    },
+    {
+      "id": 211,
+      "question": "Which program trains teachers in home economics subjects like cooking and sewing?",
+      "course": "Bachelor of Technology and Livelihood Education Major in Home Economics",
+      "option_a": "Industrial Arts",
+      "option_b": "Home Economics",
+      "option_c": "General Science",
+      "option_d": "Sports Coaching",
+      "answer": "B"
+    },
+    {
+      "id": 212,
+      "question": "Which program trains teachers in woodworking, electricity, and metal works?",
+      "course": "Bachelor of Technology and Livelihood Education Major in Industrial Arts",
+      "option_a": "Industrial Arts",
+      "option_b": "Home Economics",
+      "option_c": "General Science",
+      "option_d": "Early Childhood Education",
+      "answer": "A"
+    },
+    {
+      "id": 213,
+      "question": "Which program prepares teachers in food service and restaurant management?",
+      "course": "Bachelor of Technical-Vocational Teacher Education Major in Food and Service Management",
+      "option_a": "Food and Service Management",
+      "option_b": "Fashion Design",
+      "option_c": "Industrial Arts",
+      "option_d": "General Education",
+      "answer": "A"
+    },
+    {
+      "id": 214,
+      "question": "Which program specializes in teaching sewing and fashion design?",
+      "course": "Bachelor of Technical-Vocational Teacher Education Major in Garments Fashion and Design",
+      "option_a": "Industrial Arts",
+      "option_b": "Garments Fashion and Design",
+      "option_c": "Home Economics",
+      "option_d": "Physical Education",
+      "answer": "B"
+    },
+    {
+      "id": 215,
+      "question": "Which program offers flexible preparation for various vocational fields?",
+      "course": "Bachelor of Technical-Vocational Teacher Education",
+      "option_a": "General Education",
+      "option_b": "Technical-Vocational Teacher Education",
+      "option_c": "Industrial Arts",
+      "option_d": "Sports Management",
+      "answer": "B"
+    },
+    {
+      "id": 216,
+      "question": "Which program focuses on sports science, exercise, and fitness management?",
+      "course": "Bachelor of Science in Exercises and Sports Science Major in Fitness and Sports Management",
+      "option_a": "Sports Management",
+      "option_b": "Fitness and Sports Management",
+      "option_c": "Culture and Arts Education",
+      "option_d": "Early Childhood Education",
+      "answer": "B"
+    },
+    {
+      "id": 217,
+      "question": "Which program trains coaches and trainers for athletic development?",
+      "course": "Bachelor of Science in Exercises and Sports Science Major in Fitness and Sports Coaching",
+      "option_a": "Sports Coaching",
+      "option_b": "Industrial Arts",
+      "option_c": "Home Economics",
+      "option_d": "General Education",
+      "answer": "A"
+    }
+  ]
+},
+"stem": {
+  "knowledge": [
+    {
+      "id": 301,
+      "question": "What do civil engineers mainly design?",
+      "course": "Bachelor of Science in Civil Engineering",
+      "option_a": "Buildings and roads",
+      "option_b": "Websites",
+      "option_c": "Medicines",
+      "option_d": "Clothes",
+      "answer": "A"
+    },
+    {
+      "id": 302,
+      "question": "Which material is most used in building houses?",
+      "course": "Bachelor of Science in Civil Engineering",
+      "option_a": "Plastic",
+      "option_b": "Concrete",
+      "option_c": "Paper",
+      "option_d": "Glass",
+      "answer": "B"
+    },
+    {
+      "id": 303,
+      "question": "What do computer engineers build?",
+      "course": "Bachelor of Science in Computer Engineering",
+      "option_a": "Cars",
+      "option_b": "Bridges",
+      "option_c": "Computers",
+      "option_d": "Shoes",
+      "answer": "C"
+    },
+    {
+      "id": 304,
+      "question": "Which is an input device?",
+      "course": "Bachelor of Science in Computer Engineering",
+      "option_a": "Keyboard",
+      "option_b": "Monitor",
+      "option_c": "Speaker",
+      "option_d": "Projector",
+      "answer": "A"
+    },
+    {
+      "id": 305,
+      "question": "Electric current flows through what?",
+      "course": "Bachelor of Science in Electrical Engineering",
+      "option_a": "Wood",
+      "option_b": "Plastic",
+      "option_c": "Metal wires",
+      "option_d": "Paper",
+      "answer": "C"
+    },
+    {
+      "id": 306,
+      "question": "What unit measures electricity?",
+      "course": "Bachelor of Science in Electrical Engineering",
+      "option_a": "Newton",
+      "option_b": "Volt",
+      "option_c": "Gram",
+      "option_d": "Meter",
+      "answer": "B"
+    },
+    {
+      "id": 307,
+      "question": "Electronics engineers mainly work with?",
+      "course": "Bachelor of Science in Electronics Engineering",
+      "option_a": "Circuits",
+      "option_b": "Shoes",
+      "option_c": "Food",
+      "option_d": "Clothes",
+      "answer": "A"
+    },
+    {
+      "id": 308,
+      "question": "What is inside a remote control?",
+      "course": "Bachelor of Science in Electronics Engineering",
+      "option_a": "Chips and circuits",
+      "option_b": "Water",
+      "option_c": "Sand",
+      "option_d": "Clay",
+      "answer": "A"
+    },
+    {
+      "id": 309,
+      "question": "Industrial engineers improve what?",
+      "course": "Bachelor of Science in Industrial Engineering",
+      "option_a": "Factories",
+      "option_b": "Shoes",
+      "option_c": "Houses",
+      "option_d": "Clothes",
+      "answer": "A"
+    },
+    {
+      "id": 310,
+      "question": "Which tool is used in factories?",
+      "course": "Bachelor of Science in Industrial Engineering",
+      "option_a": "Machine",
+      "option_b": "Pencil",
+      "option_c": "Paintbrush",
+      "option_d": "Camera",
+      "answer": "A"
+    },
+    {
+      "id": 311,
+      "question": "What do mechanical engineers design?",
+      "course": "Bachelor of Science in Mechanical Engineering",
+      "option_a": "Cars and machines",
+      "option_b": "Plants",
+      "option_c": "Clothes",
+      "option_d": "Music",
+      "answer": "A"
+    },
+    {
+      "id": 312,
+      "question": "Which machine turns fuel into motion?",
+      "course": "Bachelor of Science in Mechanical Engineering",
+      "option_a": "Motor",
+      "option_b": "Printer",
+      "option_c": "Fan",
+      "option_d": "Speaker",
+      "answer": "A"
+    },
+    {
+      "id": 313,
+      "question": "What do architects design?",
+      "course": "Bachelor of Science in Architecture",
+      "option_a": "Buildings",
+      "option_b": "Shoes",
+      "option_c": "Food",
+      "option_d": "Clothes",
+      "answer": "A"
+    },
+    {
+      "id": 314,
+      "question": "Which drawing is used in building plans?",
+      "course": "Bachelor of Science in Architecture",
+      "option_a": "Blueprint",
+      "option_b": "Comic strip",
+      "option_c": "Painting",
+      "option_d": "Map",
+      "answer": "A"
+    },
+    {
+      "id": 315,
+      "question": "What do IT professionals manage?",
+      "course": "Bachelor of Science in Information Technology",
+      "option_a": "Computers and networks",
+      "option_b": "Cars",
+      "option_c": "Shoes",
+      "option_d": "Food",
+      "answer": "A"
+    },
+    {
+      "id": 316,
+      "question": "Which is used to browse the internet?",
+      "course": "Bachelor of Science in Information Technology",
+      "option_a": "Browser",
+      "option_b": "Ruler",
+      "option_c": "Book",
+      "option_d": "Microscope",
+      "answer": "A"
+    },
+    {
+      "id": 317,
+      "question": "What do information systems store?",
+      "course": "Bachelor of Science in Information Systems",
+      "option_a": "Data",
+      "option_b": "Shoes",
+      "option_c": "Food",
+      "option_d": "Clothes",
+      "answer": "A"
+    },
+    {
+      "id": 318,
+      "question": "Which is a type of database?",
+      "course": "Bachelor of Science in Information Systems",
+      "option_a": "MySQL",
+      "option_b": "Pencil",
+      "option_c": "Camera",
+      "option_d": "Paint",
+      "answer": "A"
+    },
+    {
+      "id": 319,
+      "question": "What do computer scientists write?",
+      "course": "Bachelor of Science in Computer Science",
+      "option_a": "Programs",
+      "option_b": "Bridges",
+      "option_c": "Shoes",
+      "option_d": "Cars",
+      "answer": "A"
+    },
+    {
+      "id": 320,
+      "question": "Which is a programming language?",
+      "course": "Bachelor of Science in Computer Science",
+      "option_a": "Python",
+      "option_b": "Banana",
+      "option_c": "Table",
+      "option_d": "Car",
+      "answer": "A"
+    },
+    {
+      "id": 321,
+      "question": "Biologists study what?",
+      "course": "Bachelor of Science in Biology",
+      "option_a": "Living things",
+      "option_b": "Rocks",
+      "option_c": "Cars",
+      "option_d": "Shoes",
+      "answer": "A"
+    },
+    {
+      "id": 322,
+      "question": "Which is the smallest unit of life?",
+      "course": "Bachelor of Science in Biology",
+      "option_a": "Cell",
+      "option_b": "Rock",
+      "option_c": "Atom",
+      "option_d": "Leaf",
+      "answer": "A"
+    },
+    {
+      "id": 323,
+      "question": "What do mathematicians solve?",
+      "course": "Bachelor of Science in Mathematics",
+      "option_a": "Equations",
+      "option_b": "Clothes",
+      "option_c": "Shoes",
+      "option_d": "Cars",
+      "answer": "A"
+    },
+    {
+      "id": 324,
+      "question": "What is 5 + 7?",
+      "course": "Bachelor of Science in Mathematics",
+      "option_a": "10",
+      "option_b": "11",
+      "option_c": "12",
+      "option_d": "13",
+      "answer": "C"
+    },
+    {
+      "id": 325,
+      "question": "What do statisticians analyze?",
+      "course": "Bachelor of Science in Statistics",
+      "option_a": "Data",
+      "option_b": "Shoes",
+      "option_c": "Food",
+      "option_d": "Cars",
+      "answer": "A"
+    },
+    {
+      "id": 326,
+      "question": "What is the average of 10 and 20?",
+      "course": "Bachelor of Science in Statistics",
+      "option_a": "10",
+      "option_b": "15",
+      "option_c": "20",
+      "option_d": "25",
+      "answer": "B"
+    },
+    {
+      "id": 327,
+      "question": "What does environmental science study?",
+      "course": "Bachelor of Science in Environmental Science",
+      "option_a": "Nature",
+      "option_b": "Shoes",
+      "option_c": "Clothes",
+      "option_d": "Cars",
+      "answer": "A"
+    },
+    {
+      "id": 328,
+      "question": "Which gas do trees absorb?",
+      "course": "Bachelor of Science in Environmental Science",
+      "option_a": "Oxygen",
+      "option_b": "Carbon Dioxide",
+      "option_c": "Nitrogen",
+      "option_d": "Helium",
+      "answer": "B"
+    },
+    {
+      "id": 329,
+      "question": "What do nurses help with?",
+      "course": "Bachelor of Science in Nursing",
+      "option_a": "Patient care",
+      "option_b": "Cooking",
+      "option_c": "Driving",
+      "option_d": "Painting",
+      "answer": "A"
+    },
+    {
+      "id": 330,
+      "question": "Which tool do nurses use?",
+      "course": "Bachelor of Science in Nursing",
+      "option_a": "Stethoscope",
+      "option_b": "Hammer",
+      "option_c": "Paintbrush",
+      "option_d": "Keyboard",
+      "answer": "A"
+    }
+  ]
+},
+"gas": {
+  "knowledge": [
+    {
+      "id": 401,
+      "question": "What does a psychologist mainly study?",
+      "course": "Bachelor of Science in Psychology",
+      "option_a": "The planets",
+      "option_b": "The human mind and behavior",
+      "option_c": "Plants and animals",
+      "option_d": "Numbers and shapes",
+      "answer": "B"
+    },
+    {
+      "id": 402,
+      "question": "Which course focuses on helping people with daily needs and services?",
+      "course": "Bachelor of Science in Human Services",
+      "option_a": "Engineering",
+      "option_b": "Human Services",
+      "option_c": "Tourism",
+      "option_d": "Computer Technology",
+      "answer": "B"
+    },
+    {
+      "id": 403,
+      "question": "What does sociology mainly study?",
+      "course": "Bachelor of Science in Sociology",
+      "option_a": "Human society and relationships",
+      "option_b": "Numbers and equations",
+      "option_c": "Cooking and baking",
+      "option_d": "Computer hardware",
+      "answer": "A"
+    },
+    {
+      "id": 404,
+      "question": "Which program focuses on helping communities and families?",
+      "course": "Bachelor of Science in Social Work",
+      "option_a": "Social Work",
+      "option_b": "Hospitality",
+      "option_c": "Tourism",
+      "option_d": "Sociology",
+      "answer": "A"
+    },
+    {
+      "id": 405,
+      "question": "Which course is for students who want to take a faster path in social work?",
+      "course": "Bachelor of Science in Social Work (Second Degree - Trimester)",
+      "option_a": "Hospitality",
+      "option_b": "Tourism",
+      "option_c": "Social Work (Second Degree - Trimester)",
+      "option_d": "Psychology",
+      "answer": "C"
+    },
+    {
+      "id": 406,
+      "question": "Which course trains students in hotel and restaurant services?",
+      "course": "Bachelor of Science in Hospitality Management",
+      "option_a": "Tourism",
+      "option_b": "Hospitality Management",
+      "option_c": "Psychology",
+      "option_d": "Social Work",
+      "answer": "B"
+    },
+    {
+      "id": 407,
+      "question": "Which course focuses on guiding tourists and planning trips?",
+      "course": "Bachelor of Science in Tourism Management",
+      "option_a": "Tourism Management",
+      "option_b": "Computer Technology",
+      "option_c": "Sociology",
+      "option_d": "Hospitality",
+      "answer": "A"
+    },
+    {
+      "id": 408,
+      "question": "Which course prepares students to manage large events like festivals?",
+      "course": "Bachelor of Science in Tourism Management Major in Events Management",
+      "option_a": "Events Management",
+      "option_b": "Social Work",
+      "option_c": "Psychology",
+      "option_d": "Hospitality",
+      "answer": "A"
+    },
+    {
+      "id": 409,
+      "question": "Which program trains students in basic computer use and IT skills?",
+      "course": "Associate in Computer Technology",
+      "option_a": "Tourism",
+      "option_b": "Computer Technology",
+      "option_c": "Psychology",
+      "option_d": "Hospitality",
+      "answer": "B"
+    },
+
+    {
+      "id": 410,
+      "question": "Which skill is important in psychology?",
+      "course": "Bachelor of Science in Psychology",
+      "option_a": "Understanding emotions",
+      "option_b": "Cooking meals",
+      "option_c": "Building houses",
+      "option_d": "Driving cars",
+      "answer": "A"
+    },
+    {
+      "id": 411,
+      "question": "Who does a social worker mainly help?",
+      "course": "Bachelor of Science in Social Work",
+      "option_a": "Plants",
+      "option_b": "Families and communities",
+      "option_c": "Machines",
+      "option_d": "Computers",
+      "answer": "B"
+    },
+    {
+      "id": 412,
+      "question": "Hospitality Management is mostly about:",
+      "course": "Bachelor of Science in Hospitality Management",
+      "option_a": "Hotels and restaurants",
+      "option_b": "Airplanes",
+      "option_c": "Computers",
+      "option_d": "Hospitals",
+      "answer": "A"
+    },
+    {
+      "id": 413,
+      "question": "Tourism students often work as:",
+      "course": "Bachelor of Science in Tourism Management",
+      "option_a": "Tour guides",
+      "option_b": "Doctors",
+      "option_c": "Accountants",
+      "option_d": "Farmers",
+      "answer": "A"
+    },
+    {
+      "id": 414,
+      "question": "Which course is best if you love organizing parties?",
+      "course": "Bachelor of Science in Tourism Management Major in Events Management",
+      "option_a": "Events Management",
+      "option_b": "Psychology",
+      "option_c": "Social Work",
+      "option_d": "Hospitality",
+      "answer": "A"
+    },
+    {
+      "id": 415,
+      "question": "Which course studies people’s thoughts and feelings?",
+      "course": "Bachelor of Science in Psychology",
+      "option_a": "Psychology",
+      "option_b": "Sociology",
+      "option_c": "Tourism",
+      "option_d": "Computer Technology",
+      "answer": "A"
+    },
+    {
+      "id": 416,
+      "question": "Which course looks at society as a whole?",
+      "course": "Bachelor of Science in Sociology",
+      "option_a": "Sociology",
+      "option_b": "Hospitality",
+      "option_c": "Tourism",
+      "option_d": "Computer Technology",
+      "answer": "A"
+    },
+    {
+      "id": 417,
+      "question": "Which subject is common in Hospitality Management?",
+      "course": "Bachelor of Science in Hospitality Management",
+      "option_a": "Cooking and service",
+      "option_b": "Programming",
+      "option_c": "History",
+      "option_d": "Algebra",
+      "answer": "A"
+    },
+    {
+      "id": 418,
+      "question": "What do students learn in Computer Technology?",
+      "course": "Associate in Computer Technology",
+      "option_a": "Typing and coding",
+      "option_b": "Cooking food",
+      "option_c": "Building houses",
+      "option_d": "Tour guiding",
+      "answer": "A"
+    },
+    {
+      "id": 419,
+      "question": "Which job fits a Tourism Management graduate?",
+      "course": "Bachelor of Science in Tourism Management",
+      "option_a": "Hotel receptionist",
+      "option_b": "Bus driver",
+      "option_c": "Nurse",
+      "option_d": "Farmer",
+      "answer": "A"
+    },
+    {
+      "id": 420,
+      "question": "Which field studies how people behave in groups?",
+      "course": "Bachelor of Science in Sociology",
+      "option_a": "Sociology",
+      "option_b": "Mathematics",
+      "option_c": "Engineering",
+      "option_d": "Tourism",
+      "answer": "A"
+    },
+    {
+      "id": 421,
+      "question": "Social workers often work in:",
+      "course": "Bachelor of Science in Social Work",
+      "option_a": "Communities and schools",
+      "option_b": "Airports",
+      "option_c": "Restaurants",
+      "option_d": "Factories",
+      "answer": "A"
+    },
+    {
+      "id": 422,
+      "question": "Which skill is needed for Tourism Management?",
+      "course": "Bachelor of Science in Tourism Management",
+      "option_a": "Good communication",
+      "option_b": "Swimming",
+      "option_c": "Drawing",
+      "option_d": "Math",
+      "answer": "A"
+    },
+    {
+      "id": 423,
+      "question": "Hospitality students usually train in:",
+      "course": "Bachelor of Science in Hospitality Management",
+      "option_a": "Hotels",
+      "option_b": "Hospitals",
+      "option_c": "Factories",
+      "option_d": "Airlines",
+      "answer": "A"
+    },
+    {
+      "id": 424,
+      "question": "Psychology graduates may work as:",
+      "course": "Bachelor of Science in Psychology",
+      "option_a": "Counselors",
+      "option_b": "Chefs",
+      "option_c": "Pilots",
+      "option_d": "Farmers",
+      "answer": "A"
+    },
+    {
+      "id": 425,
+      "question": "What do event managers do?",
+      "course": "Bachelor of Science in Tourism Management Major in Events Management",
+      "option_a": "Organize programs",
+      "option_b": "Repair machines",
+      "option_c": "Cook meals",
+      "option_d": "Drive buses",
+      "answer": "A"
+    },
+    {
+      "id": 426,
+      "question": "Which subject do Human Services focus on?",
+      "course": "Bachelor of Science in Human Services",
+      "option_a": "Helping communities",
+      "option_b": "Building houses",
+      "option_c": "Tourism",
+      "option_d": "Computers",
+      "answer": "A"
+    },
+    {
+      "id": 427,
+      "question": "Computer Technology students often practice:",
+      "course": "Associate in Computer Technology",
+      "option_a": "Using software",
+      "option_b": "Cooking",
+      "option_c": "Singing",
+      "option_d": "Driving",
+      "answer": "A"
+    },
+    {
+      "id": 428,
+      "question": "Which course is best for those who love to travel?",
+      "course": "Bachelor of Science in Tourism Management",
+      "option_a": "Tourism Management",
+      "option_b": "Computer Technology",
+      "option_c": "Psychology",
+      "option_d": "Social Work",
+      "answer": "A"
+    },
+    {
+      "id": 429,
+      "question": "Hospitality Management focuses on:",
+      "course": "Bachelor of Science in Hospitality Management",
+      "option_a": "Customer service",
+      "option_b": "Math equations",
+      "option_c": "Plant growth",
+      "option_d": "Tour guiding",
+      "answer": "A"
+    },
+    {
+      "id": 430,
+      "question": "Which course trains you in both travel and events?",
+      "course": "Bachelor of Science in Tourism Management Major in Events Management",
+      "option_a": "Events Management",
+      "option_b": "Social Work",
+      "option_c": "Psychology",
+      "option_d": "Sociology",
+      "answer": "A"
+    }
+    ]
+  }
+}

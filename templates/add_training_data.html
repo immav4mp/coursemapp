@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Training Data - Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+  <div class="max-w-xl mx-auto bg-white p-6 rounded shadow">
+    <h1 class="text-2xl font-bold mb-4 text-gray-800">Add Training Data</h1>
+    <form method="POST">
+      <label class="block mb-2 font-semibold">Strand:</label>
+      <input type="text" name="strand" required class="w-full mb-4 px-4 py-2 border rounded">
+
+      <label class="block mb-2 font-semibold">Course:</label>
+      <input type="text" name="course" required class="w-full mb-4 px-4 py-2 border rounded">
+
+      <label class="block mb-2 font-semibold">Knowledge:</label>
+      <input type="text" name="knowledge" required class="w-full mb-4 px-4 py-2 border rounded">
+
+      <label class="block mb-2 font-semibold">Interest:</label>
+      <input type="text" name="interest" required class="w-full mb-4 px-4 py-2 border rounded">
+
+      <label class="block mb-2 font-semibold">Aptitude:</label>
+      <input type="text" name="aptitude" required class="w-full mb-4 px-4 py-2 border rounded">
+
+      <label class="block mb-2 font-semibold">Personality:</label>
+      <input type="text" name="personality" required class="w-full mb-4 px-4 py-2 border rounded">
+
+      <label class="block mb-2 font-semibold">Goal:</label>
+      <input type="text" name="goal" required class="w-full mb-4 px-4 py-2 border rounded">
+
+      <div class="flex justify-between">
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Add</button>
+        <a href="{{ url_for('admin_dashboard') }}" class="text-gray-600 hover:underline mt-2">Back to Dashboard</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

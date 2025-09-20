@@ -1,0 +1,273 @@
+[
+  {
+    "date": "2025-09-13 23:21",
+    "suggested_course": "Bachelor of Elementary Education Major in General Education",
+    "top_courses": [
+      "Bachelor of Elementary Education Major in General Education",
+      "BS Exercise and Sports Science Major in Fitness and Sports Coaching",
+      "BS Exercise and Sports Science Major in Fitness and Sports Management"
+    ],
+    "scores": {
+      "knowledge": "9/30",
+      "interest": "140%",
+      "aptitude": "1/5",
+      "personality": "100%",
+      "goal": "40%"
+    }
+  },
+  {
+    "date": "2025-09-13 23:29",
+    "suggested_course": "Bachelor of Secondary Education Major in Mathematics",
+    "top_courses": [
+      "Bachelor of Secondary Education Major in Mathematics",
+      "BS Exercise and Sports Science Major in Fitness and Sports Coaching",
+      "BS Exercise and Sports Science Major in Fitness and Sports Management"
+    ],
+    "scores": {
+      "knowledge": "9/30",
+      "interest": "140%",
+      "aptitude": "1/5",
+      "personality": "100%",
+      "goal": "40%"
+    }
+  },
+  {
+    "date": "2025-09-13 23:29",
+    "suggested_course": "Bachelor of Secondary Education Major in Mathematics",
+    "top_courses": [
+      "Bachelor of Secondary Education Major in Mathematics",
+      "BS Exercise and Sports Science Major in Fitness and Sports Coaching",
+      "BS Exercise and Sports Science Major in Fitness and Sports Management"
+    ],
+    "scores": {
+      "knowledge": "9/30",
+      "interest": "140%",
+      "aptitude": "1/5",
+      "personality": "100%",
+      "goal": "40%"
+    }
+  },
+  {
+    "date": "2025-09-13 23:34",
+    "suggested_course": "Bachelor of Secondary Education Major in Mathematics",
+    "top_courses": [
+      "Bachelor of Secondary Education Major in Mathematics",
+      "BS Exercise and Sports Science Major in Fitness and Sports Coaching",
+      "BS Exercise and Sports Science Major in Fitness and Sports Management"
+    ],
+    "scores": {
+      "knowledge": "4/30",
+      "interest": "140%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "80%"
+    }
+  },
+  {
+    "date": "2025-09-17 14:51",
+    "suggested_course": "Bachelor of Secondary Education Major in Mathematics",
+    "top_courses": [
+      "Bachelor of Secondary Education Major in Mathematics",
+      "BS Exercise and Sports Science Major in Fitness and Sports Coaching",
+      "BS Exercise and Sports Science Major in Fitness and Sports Management"
+    ],
+    "scores": {
+      "knowledge": "6/30",
+      "interest": "140%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-17 14:56",
+    "suggested_course": "Bachelor of Secondary Education Major in Mathematics",
+    "top_courses": [
+      "Bachelor of Secondary Education Major in Mathematics",
+      "BS Exercise and Sports Science Major in Fitness and Sports Coaching",
+      "BS Exercise and Sports Science Major in Fitness and Sports Management"
+    ],
+    "scores": {
+      "knowledge": "9/30",
+      "interest": "140%",
+      "aptitude": "1/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-17 14:56",
+    "suggested_course": "Bachelor of Secondary Education Major in Mathematics",
+    "top_courses": [
+      "Bachelor of Secondary Education Major in Mathematics",
+      "BS Exercise and Sports Science Major in Fitness and Sports Coaching",
+      "BS Exercise and Sports Science Major in Fitness and Sports Management"
+    ],
+    "scores": {
+      "knowledge": "9/30",
+      "interest": "140%",
+      "aptitude": "1/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-17 15:03",
+    "suggested_course": "Bachelor of Secondary Education Major in Mathematics",
+    "top_courses": [
+      "Bachelor of Secondary Education Major in Mathematics",
+      "BS Exercise and Sports Science Major in Fitness and Sports Coaching",
+      "BS Exercise and Sports Science Major in Fitness and Sports Management"
+    ],
+    "scores": {
+      "knowledge": "8/30",
+      "interest": "140%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 01:26",
+    "suggested_course": "No course matched",
+    "knowledge_top3": [],
+    "scores": {
+      "knowledge": "0/17",
+      "interest": "170%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 01:27",
+    "suggested_course": "No course matched",
+    "knowledge_top3": [],
+    "scores": {
+      "knowledge": "0/17",
+      "interest": "170%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 01:29",
+    "suggested_course": "No course matched",
+    "knowledge_top3": [],
+    "scores": {
+      "knowledge": "0/17",
+      "interest": "170%",
+      "aptitude": "1/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 01:33",
+    "suggested_course": "No course matched",
+    "knowledge_top3": [],
+    "scores": {
+      "knowledge": "0/17",
+      "interest": "170%",
+      "aptitude": "1/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:20",
+    "suggested_course": "Bachelor of Elementary Education Major in General Education",
+    "knowledge_top3": [
+      "Bachelor of Elementary Education Major in General Education",
+      "Bachelor of Secondary Education Major in English",
+      "Bachelor of Technology and Livelihood Education Major in Industrial Arts"
+    ],
+    "scores": {
+      "knowledge": "5/17",
+      "interest": "170%",
+      "aptitude": "2/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:22",
+    "suggested_course": "Bachelor of Elementary Education Major in General Education",
+    "knowledge_top3": [
+      "Bachelor of Elementary Education Major in General Education",
+      "Bachelor of Culture and Arts Education",
+      "Bachelor of Technology and Livelihood Education Major in Home Economics"
+    ],
+    "scores": {
+      "knowledge": "8/17",
+      "interest": "170%",
+      "aptitude": "1/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 02:29",
+    "suggested_course": "Bachelor of Secondary Education Major in Social Studies",
+    "knowledge_top3": [
+      "Bachelor of Secondary Education Major in Social Studies",
+      "Bachelor of Technology and Livelihood Education Major in Industrial Arts",
+      "Bachelor of Science in Exercises and Sports Science Major in Fitness and Sports Coaching"
+    ],
+    "scores": {
+      "knowledge": "3/17",
+      "interest": "170%",
+      "aptitude": "0/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-19 11:51",
+    "suggested_course": "Bachelor of Elementary Education Major in General Education",
+    "knowledge_top3": [
+      "Bachelor of Elementary Education Major in General Education",
+      "Bachelor of Early Childhood Education",
+      "Bachelor of Secondary Education Major in Filipino"
+    ],
+    "scores": {
+      "knowledge": "8/17",
+      "interest": "170%",
+      "aptitude": "4/5",
+      "personality": "100%",
+      "goal": "0%"
+    }
+  },
+  {
+    "date": "2025-09-20 02:02",
+    "suggested_course": "Bachelor of Early Childhood Education",
+    "knowledge_top3": [
+      "Bachelor of Early Childhood Education",
+      "Bachelor of Secondary Education Major in Mathematics",
+      "Bachelor of Technical-Vocational Teacher Education Major in Food and Service Management"
+    ],
+    "scores": {
+      "knowledge": "3/17",
+      "interest": "0%",
+      "aptitude": "0/5",
+      "personality": "100%",
+      "goal": "100%"
+    }
+  },
+  {
+    "date": "2025-09-20 02:44",
+    "suggested_course": "Bachelor of Secondary Education Major in Mathematics",
+    "knowledge_top3": [
+      "Bachelor of Secondary Education Major in Mathematics",
+      "Bachelor of Secondary Education Major in General Science"
+    ],
+    "scores": {
+      "knowledge": "2/17",
+      "interest": "0%",
+      "aptitude": "0/5",
+      "personality": "100%",
+      "goal": "60%"
+    }
+  }
+]

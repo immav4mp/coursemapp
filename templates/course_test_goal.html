@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Goal Alignment Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/goal.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <h2>Career Goal Test</h2>
+
+    <form method="POST" id="goalForm">
+      {% for goal in goals %}
+        <div class="goal {% if loop.index == 1 %}active{% endif %}" data-goal-index="{{ loop.index0 }}">
+          <p><strong>Goal {{ loop.index }}:</strong></p>
+
+          <div class="checkbox-group">
+            <label class="checkbox-wrapper">
+              <input type="checkbox" name="goals" value="{{ goal['id'] }}">
+              {{ goal['question'] }}
+            </label>
+          </div>
+
+          <button type="button" class="btn next-btn">
+            {% if loop.last %}Finish{% else %}Submit{% endif %}
+          </button>
+        </div>
+      {% endfor %}
+    </form>
+  </div>
+
+  <script>
+    const goals = document.querySelectorAll('.goal');
+    const progressBar = document.getElementById('progressBar');
+    let currentIndex = 0;
+
+    function updateProgress() {
+      const percent = ((currentIndex + 1) / goals.length) * 100;
+      progressBar.style.width = percent + '%';
+    }
+
+    // next button logic
+    document.querySelectorAll('.next-btn').forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        goals[index].classList.remove('active');
+
+        if (index + 1 < goals.length) {
+          goals[index + 1].classList.add('active');
+          currentIndex++;
+          updateProgress();
+        } else {
+          document.getElementById('goalForm').submit();
+        }
+      });
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "stem": [
+    { "features": [27, 25, 4, 22, 28], "course": "Bachelor of Science in Civil Engineering" },
+    { "features": [28, 26, 5, 23, 29], "course": "Bachelor of Science in Computer Engineering" },
+    { "features": [23, 20, 3, 19, 25], "course": "Bachelor of Science in Electrical Engineering" },
+    { "features": [22, 21, 2, 18, 24], "course": "Bachelor of Science in Electronics Engineering" },
+    { "features": [24, 22, 4, 20, 23], "course": "Bachelor of Science in Industrial Engineering" },
+    { "features": [23, 21, 3, 19, 24], "course": "Bachelor of Science in Mechanical Engineering" },
+    { "features": [18, 20, 2, 15, 19], "course": "Bachelor of Science in Architecture" },
+    { "features": [26, 24, 4, 22, 27], "course": "Bachelor of Science in Information Technology" },
+    { "features": [23, 22, 3, 20, 24], "course": "Bachelor of Science in Information Systems" },
+    { "features": [29, 27, 5, 24, 30], "course": "Bachelor of Science in Computer Science" },
+    { "features": [20, 19, 2, 17, 22], "course": "Bachelor of Science in Biology" },
+    { "features": [28, 25, 4, 23, 27], "course": "Bachelor of Science in Mathematics" },
+    { "features": [24, 23, 3, 21, 25], "course": "Bachelor of Science in Statistics" },
+    { "features": [19, 18, 2, 16, 21], "course": "Bachelor of Science in Environmental Science" },
+    { "features": [22, 21, 3, 19, 23], "course": "Bachelor of Science in Nursing" }
+  ],
+  "abm": [
+    { "features": [20, 19, 2, 18, 21], "course": "Bachelor of Science in Business Administration Major in Marketing Management" },
+    { "features": [18, 17, 3, 16, 19], "course": "Bachelor of Science in Business Administration Major in Business Economics" },
+    { "features": [14, 16, 1, 13, 17], "course": "Bachelor of Science in Entrepreneurship" },
+    { "features": [26, 25, 5, 22, 27], "course": "Bachelor of Science in Accountancy" },
+    { "features": [24, 23, 4, 21, 25], "course": "Bachelor of Science in Accounting Information Systems" },
+    { "features": [19, 18, 2, 17, 20], "course": "Bachelor of Public Administration" },
+    { "features": [18, 17, 3, 15, 19], "course": "Bachelor of Science in Real Estate Management" },
+    { "features": [17, 16, 2, 14, 18], "course": "Bachelor of Science in Legal Management" },
+    { "features": [21, 20, 3, 18, 22], "course": "Bachelor of Science in Logistics and Supply Chain Management" }
+  ],
+  "humss": [
+    { "features": [17, 18, 2, 20, 19], "course": "Bachelor of Elementary Education Major in General Education" },
+    { "features": [15, 17, 3, 18, 16], "course": "Bachelor of Early Childhood Education" },
+    { "features": [18, 19, 4, 21, 20], "course": "Bachelor of Secondary Education Major in English" },
+    { "features": [17, 18, 2, 20, 19], "course": "Bachelor of Secondary Education Major in Filipino" },
+    { "features": [22, 21, 5, 23, 22], "course": "Bachelor of Secondary Education Major in Mathematics" },
+    { "features": [16, 17, 2, 19, 18], "course": "Bachelor of Secondary Education Major in Social Studies" },
+    { "features": [20, 19, 4, 22, 21], "course": "Bachelor of Secondary Education Major in General Science" },
+    { "features": [14, 15, 1, 17, 16], "course": "Methods of Teaching" },
+    { "features": [18, 17, 3, 19, 20], "course": "Bachelor of Physical Education" },
+    { "features": [13, 14, 2, 16, 15], "course": "Bachelor of Culture and Arts Education" },
+    { "features": [16, 15, 2, 18, 17], "course": "Bachelor of Technology and Livelihood Education Major in Home Economics" },
+    { "features": [17, 16, 3, 19, 18], "course": "Bachelor of Technology and Livelihood Education Major in Industrial Arts" },
+    { "features": [12, 13, 1, 15, 14], "course": "Bachelor of Technical-Vocational Teacher Education Major in Food and Service Management" },
+    { "features": [11, 12, 2, 14, 13], "course": "Bachelor of Technical-Vocational Teacher Education Major in Garments Fashion and Design" },
+    { "features": [13, 14, 1, 15, 14], "course": "Bachelor of Technical-Vocational Teacher Education" },
+    { "features": [19, 18, 4, 21, 20], "course": "Bachelor of Science in Exercises and Sports Science Major in Fitness and Sports Management" },
+    { "features": [18, 17, 3, 20, 19], "course": "Bachelor of Science in Exercises and Sports Science Major in Fitness and Sports Coaching" }
+  ],
+  "gas": [
+    { "features": [20, 19, 5, 22, 21], "course": "Bachelor of Science in Psychology" },
+    { "features": [18, 17, 3, 19, 18], "course": "Bachelor of Science in Human Services" },
+    { "features": [17, 16, 2, 18, 17], "course": "Bachelor of Science in Sociology" },
+    { "features": [16, 15, 3, 17, 16], "course": "Bachelor of Science in Social Work" },
+    { "features": [15, 14, 2, 16, 15], "course": "Bachelor of Science in Social Work (Second Degree - Trimester)" },
+    { "features": [21, 20, 5, 22, 21], "course": "Bachelor of Science in Hospitality Management" },
+    { "features": [20, 19, 3, 21, 20], "course": "Bachelor of Science in Tourism Management" },
+    { "features": [23, 21, 4, 20, 24], "course": "Bachelor of Science in Tourism Management Major in Events Management" },
+    { "features": [14, 13, 2, 15, 14], "course": "Associate in Computer Technology" }
+  ]
+}

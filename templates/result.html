@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Test Result</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2); /* same palette */
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 20px 10px;
+    }
+
+    .loader-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(20, 20, 60, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      z-index: 9999;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .card {
+      background: #fff;
+      color: #333;
+      padding: 20px 25px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 650px;
+      display: none;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: #4f46e5;
+    }
+
+    .highlight {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #10b981;
+    }
+
+    .course-card {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateX(40px);
+      animation: slideIn 0.6s forwards;
+    }
+
+    .course-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #10b981;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .see-more {
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: block;
+      margin: 8px auto 0 auto;
+    }
+    .see-more:hover { background: #4338ca; }
+
+    .extra-info {
+      display: none;
+      margin-top: 10px;
+      background: #eef2ff;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #333;
+      animation: fadeIn 0.5s ease;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #222;
+      text-align: center;
+    }
+
+    ul { list-style: none; padding: 0; }
+
+    ul li {
+      background: #f3f4f6;
+      padding: 8px 12px;
+      margin-bottom: 6px;
+      border-radius: 6px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .back-btn { display: inline-block; margin-top: 20px; text-align: center; width: 100%; }
+
+    .back-btn a {
+      background: #4f46e5;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .back-btn a:hover { background: #4338ca; }
+
+    /* Progress bar styling */
+    .progress-bar {
+      background: #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 14px;
+      margin: 8px 0;
+    }
+    .progress-fill {
+      height: 100%;
+      transition: width 0.8s ease;
+    }
+    .progress-green { background: #10b981; }  
+    .progress-purple { background: #4f46e5; } 
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="loader-overlay" id="loader">
+  Calculating your result...
+</div>
+
+<div class="card" id="resultCard">
+  <h2>🎓 Your Top 3 Suggested Courses</h2>
+  <p class="highlight">Suggested Course: {{ suggested_course }}</p>
+
+  <!-- Loop through top 3 -->
+  {% for course, reason, prob in course_data %}
+    <div class="course-card" style="animation-delay: {{ loop.index * 0.8 }}s;">
+      <p class="course-title">
+        {{ loop.index }}. {{ course }}
+        <span style="color:#4f46e5; font-size:14px;">({{ prob }}%)</span>
+      </p>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar">
+        <div class="progress-fill {% if loop.index == 1 %}progress-green{% else %}progress-purple{% endif %}" 
+             style="width: {{ prob }}%;"></div>
+      </div>
+
+      <button class="see-more" onclick="toggleExtra('extra{{ loop.index }}')">See More</button>
+      <div class="extra-info" id="extra{{ loop.index }}">
+        <p>{{ reason }}</p>
+      </div>
+    </div>
+  {% endfor %}
+
+  <!-- Scores (will appear after courses) -->
+  <div id="scores" style="opacity:0; transform:translateY(20px); transition: all 0.8s ease;">
+    <h3>📊 Your Scores</h3>
+    <ul>
+      <li>Knowledge: {{ knowledge_score|default(0) }}%</li>
+      <li>Interest: {{ interest_score|default(0) }}%</li>
+      <li>Aptitude: {{ aptitude_score|default(0) }}%</li>
+      <li>Personality: {{ personality_score|default(0) }}%</li>
+      <li>Career Goal: {{ goal_score|default(0) }}%</li>
+    </ul>
+  </div>
+
+  <div class="back-btn">
+    <a href="{{ url_for('index') }}">⬅ Back to Home</a>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    const card = document.getElementById('resultCard');
+    const scores = document.getElementById('scores');
+    setTimeout(() => {
+      loader.style.display = 'none';
+      card.style.display = 'block';
+
+      // reveal scores after last course card
+      setTimeout(() => {
+        scores.style.opacity = '1';
+        scores.style.transform = 'translateY(0)';
+      }, 3500);
+    }, 2500);
+  });
+
+  function toggleExtra(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>

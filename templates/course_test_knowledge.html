@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knowledge Test</title>
+    <!-- This makes mobile devices respect your CSS scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/knowledge.css') }}">
+</head>
+<body>
+
+<!-- Loader Screen -->
+<div class="loader-overlay" id="loader">
+    Starting Knowledge Test...
+</div>
+
+<!-- Test Container -->
+<div class="container" id="testContainer">
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <h2>Knowledge Test - {{ user['strand'].capitalize() }}</h2>
+
+    <form method="POST" id="knowledgeForm">
+        {% for q in knowledge_questions %}
+            <div class="question {% if loop.index == 1 %}active{% endif %}" data-question-index="{{ loop.index0 }}">
+                <p>{{ q.question }} <br><em>({{ q.course }})</em></p>
+                <div class="options">
+    <label>
+        <input type="radio" name="q{{ q.id }}" value="A" required>
+        <span class="letter">A.</span>
+        <span class="choice-text">{{ q.option_a }}</span>
+    </label>
+    <label>
+        <input type="radio" name="q{{ q.id }}" value="B">
+        <span class="letter">B.</span>
+        <span class="choice-text">{{ q.option_b }}</span>
+    </label>
+    <label>
+        <input type="radio" name="q{{ q.id }}" value="C">
+        <span class="letter">C.</span>
+        <span class="choice-text">{{ q.option_c }}</span>
+    </label>
+    <label>
+        <input type="radio" name="q{{ q.id }}" value="D">
+        <span class="letter">D.</span>
+        <span class="choice-text">{{ q.option_d }}</span>
+    </label>
+</div>
+                <button type="button" class="btn next-btn">
+                    {% if loop.last %}Finish{% else %}Submit{% endif %}
+                </button>
+            </div>
+        {% endfor %}
+    </form>
+
+    <div class="progress-counter" id="progressCounter">1/{{ knowledge_questions|length }}</div>
+</div>
+
+<script>
+    // Loader functionality
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        const container = document.getElementById('testContainer');
+        
+        setTimeout(() => {
+            loader.style.display = 'none';
+            container.style.display = 'block';
+        }, 2000);
+    });
+
+    // Question navigation
+    const questions = document.querySelectorAll('.question');
+    const progressBar = document.getElementById('progressBar');
+    const progressCounter = document.getElementById('progressCounter');
+    let currentIndex = 0;
+
+    function updateProgress() {
+        const percent = ((currentIndex + 1) / questions.length) * 100;
+        progressBar.style.width = percent + '%';
+        progressCounter.textContent = `${currentIndex + 1}/${questions.length}`;
+    }
+
+    document.querySelectorAll('.next-btn').forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            const currentQuestion = questions[index];
+            const selected = currentQuestion.querySelector('input[type="radio"]:checked');
+
+            if (!selected) {
+                alert("Please select an answer before continuing.");
+                return;
+            }
+
+            currentQuestion.classList.remove('active');
+
+            if (index + 1 < questions.length) {
+                questions[index + 1].classList.add('active');
+                currentIndex++;
+                updateProgress();
+            } else {
+                document.getElementById('knowledgeForm').submit();
+            }
+        });
+    });
+
+    // Initial
+    updateProgress();
+</script>
+</body>
+</html>

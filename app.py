@@ -1,68 +1,61 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
-import math
-from flask_mysqldb import MySQL
-import MySQLdb.cursors
-import hashlib
-import json
-import os
+from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
+import math, hashlib, json, os, random
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
-from flask import jsonify
-from utils import load_questions, save_questions
-from werkzeug.security import generate_password_hash
-print(generate_password_hash("admin1"))
-from werkzeug.security import check_password_hash
-from utils import load_training_data, save_training_data
+from utils import load_questions, save_questions, load_training_data, save_training_data
+from collections import defaultdict
+import numpy as np
+from sklearn.naive_bayes import GaussianNB
+from sqlalchemy import text
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.routing import BuildError
 
-#flask app
+# Flask app
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Make this a secure random string in production
 
-from datetime import datetime
+# ✅ Database config for Render PostgreSQL
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
+# ---- Template Filters ----
 @app.template_filter('format_datetime')
 def format_datetime(value):
-    """Convert string 'YYYY-MM-DD HH:MM' to 'Sep 17, 2025 02:30 PM'"""
     try:
         dt = datetime.strptime(value, "%Y-%m-%d %H:%M")
-        return dt.strftime("%b %d, %Y %I:%M %p")  # 12-hour format with AM/PM
+        return dt.strftime("%b %d, %Y %I:%M %p")
     except:
-        return value  # return original if parsing fails
+        return value
 
+@app.template_filter('todatetime')
+def to_datetime(value):
+    try:
+        return datetime.strptime(value, "%Y-%m-%d %H:%M")
+    except:
+        return value
 
-#mysqlconfiguration
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'coursemap_db'
-
-mysql = MySQL(app)
-
-#home Page
+# ---- Home Page ----
 @app.route('/')
 def index():
     user = session.get('user')
-    is_new_user = session.pop('is_new_user', False)  # pop means it will be removed after first read
+    is_new_user = session.pop('is_new_user', False)
     return render_template('index.html', user=user, is_new_user=is_new_user, year=datetime.now().year)
 
-
-# --- LOGIN ROUTE (Updated) ---
-import os, json, hashlib
-from datetime import datetime
-import MySQLdb
-
+# ---- LOGIN ----
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form['email']
         password = hashlib.sha256(request.form['password'].encode()).hexdigest()
 
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
-        user = cursor.fetchone()
+        user = db.session.execute(
+            text("SELECT * FROM users WHERE email = :email"),
+            {"email": email}
+        ).mappings().first()
 
         if user and user['password'] == password:
-            # ✅ Base session user data
             session['user'] = {
                 'id': user['id'],
                 'email': user['email'],
@@ -75,62 +68,40 @@ def login():
                 'is_admin': (user['role'] == 'admin')
             }
 
-            # ✅ Load history from JSON file if exists
+            # Load history JSON
             history_file = f"user_history/{email}.json"
             if os.path.exists(history_file):
                 with open(history_file, "r") as f:
                     history = json.load(f)
             else:
                 history = []
-
             session['user']["history"] = history
             session['history'] = history
-
-            # ✅ Handle new user flag
             session['is_new_user'] = (request.args.get('from_reg') == '1')
 
-            # ✅ Insert or update login log
             now = datetime.now()
-            cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-
-            # Check if there's an existing log without logout
-            cursor2.execute("""
+            existing_log = db.session.execute(text("""
                 SELECT * FROM user_logs 
-                WHERE user_id = %s AND logout_time IS NULL
+                WHERE user_id = :uid AND logout_time IS NULL
                 ORDER BY login_time DESC LIMIT 1
-            """, (user['id'],))
-            existing_log = cursor2.fetchone()
+            """), {"uid": user['id']}).mappings().first()
 
             if existing_log:
-                # Update login_time if needed
-                cursor2.execute("""
-                    UPDATE user_logs SET login_time = %s
-                    WHERE id = %s
-                """, (now, existing_log['id']))
+                db.session.execute(text("""
+                    UPDATE user_logs SET login_time = :t WHERE id = :id
+                """), {"t": now, "id": existing_log['id']})
             else:
-                # Insert new log entry
-                cursor2.execute("""
-                    INSERT INTO user_logs (user_id, login_time)
-                    VALUES (%s, %s)
-                """, (user['id'], now))
+                db.session.execute(text("""
+                    INSERT INTO user_logs (user_id, login_time) VALUES (:uid, :t)
+                """), {"uid": user['id'], "t": now})
+            db.session.commit()
 
-            mysql.connection.commit()
-            cursor2.close()
-
-            # ✅ Redirect depending on role
-            if user['role'] == 'admin':
-                return redirect(url_for('admin_dashboard'))
-            else:
-                return redirect(url_for('index', alert='login_success'))
+            return redirect(url_for('admin_dashboard') if user['role'] == 'admin' else url_for('index', alert='login_success'))
         else:
-            # ❌ Incorrect credentials → back to index with alert
             return redirect(url_for('index', alert='login_failed'))
-
-    # ⚠️ No direct login page anymore → always redirect to index
     return redirect(url_for('index'))
 
-
-# Register Page
+# ---- REGISTER ----
 @app.route('/register', methods=['POST'])
 def register():
     first_name = request.form['first_name'].strip()
@@ -139,31 +110,25 @@ def register():
     password = request.form['password']
     confirm_password = request.form['confirm_password']
 
-    # Check if passwords match
     if password != confirm_password:
         return redirect(url_for('index', register_alert='password_mismatch'))
 
-    # Create full_name
     full_name = f"{first_name} {last_name}"
-
-    # Hash password
     hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
-    account = cursor.fetchone()
+    account = db.session.execute(
+        text("SELECT * FROM users WHERE email = :email"),
+        {"email": email}
+    ).mappings().first()
 
     if account:
-        cursor.close()
         return redirect(url_for('index', register_alert='email_exists'))
     else:
-        cursor.execute("""
+        db.session.execute(text("""
             INSERT INTO users (first_name, last_name, full_name, email, password, profile_completed)
-            VALUES (%s, %s, %s, %s, %s, 0)
-        """, (first_name, last_name, full_name, email, hashed_password))
-        mysql.connection.commit()
-        cursor.close()
-        # Successful registration → stay on index with alert
+            VALUES (:fn, :ln, :full, :email, :pw, FALSE)
+        """), {"fn": first_name, "ln": last_name, "full": full_name, "email": email, "pw": hashed_password})
+        db.session.commit()
         return redirect(url_for('index', register_alert='success'))
 
 
@@ -180,49 +145,34 @@ def complete_profile():
 
     if request.method == 'POST':
         strand = request.form['strand']
+        db.session.execute(text("""
+            UPDATE users SET strand = :s, profile_completed = TRUE WHERE id = :uid
+        """), {"s": strand, "uid": user_id})
+        db.session.commit()
 
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("""
-            UPDATE users SET strand = %s, profile_completed = 1
-            WHERE id = %s
-        """, (strand, user_id))
-        mysql.connection.commit()
+        updated_user = db.session.execute(
+            text("SELECT * FROM users WHERE id = :uid"), {"uid": user_id}
+        ).mappings().first()
 
-        # Refresh session data from DB after update
-        cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
-        updated_user = cursor.fetchone()
-
-        session['user'] = {
-            'id': updated_user['id'],
-            'email': updated_user['email'],
-            'first_name': updated_user.get('first_name', ''),
-            'last_name': updated_user.get('last_name', ''),
-            'full_name': updated_user.get('full_name', ''),
-            'profile_completed': updated_user['profile_completed'],
+        session['user'].update({
             'strand': updated_user['strand'],
-            'role': updated_user.get('role', 'user')
-        }
-
-        session['is_new_user'] = True  # <<<<<<<<<<<< Add this line here!
-
+            'profile_completed': updated_user['profile_completed']
+        })
+        session['is_new_user'] = True
         flash('Profile completed successfully.', 'success')
         return redirect(url_for('index'))
 
     return render_template('complete_profile.html', user=session['user'])
 
-
-
 # Dashboard Page
+# ---- Dashboard ----
 @app.route('/dashboard')
 def dashboard():
     if 'user' not in session:
         return redirect(url_for('login'))
-    
     user = session['user']
-    
     if not user.get('profile_completed'):
         return redirect(url_for('complete_profile'))
-
     return render_template('dashboard.html', user=user)
 
 # --- KNOWLEDGE TEST ---
@@ -762,124 +712,47 @@ def delete_history(index):
     return redirect(url_for('history'))
 
 
-# -- ADMIN DASHBOARD ROUTE (with Users + Question Bank + Training Data + Stats) ---
-from flask import flash, get_flashed_messages, session, redirect, url_for, render_template
-from datetime import datetime
-import json
-import MySQLdb
-import os
-from werkzeug.routing import BuildError
-
+# ---- Admin Dashboard Example (converted) ----
 @app.route('/admin_dashboard')
 def admin_dashboard():
-    # ✅ Check if logged in and is admin
     if 'user' not in session or session['user'].get('role') != 'admin':
         return redirect(url_for('login'))
 
-    # ✅ Load question bank
+    # Load JSON banks
     try:
-        with open(os.path.join(app.root_path, 'question_bank.json'), 'r') as file:
-            question_bank = json.load(file)
-            if not isinstance(question_bank, dict):
-                question_bank = {}
-    except (FileNotFoundError, json.JSONDecodeError):
-        question_bank = {}
-
-    # ✅ Load training data
+        with open('question_bank.json', 'r') as f: question_bank = json.load(f)
+    except: question_bank = {}
     try:
-        with open(os.path.join(app.root_path, 'training_data.json'), 'r') as file:
-            training_data = json.load(file)
-            if not isinstance(training_data, dict):
-                training_data = {}
-    except (FileNotFoundError, json.JSONDecodeError):
-        training_data = {}
+        with open('training_data.json', 'r') as f: training_data = json.load(f)
+    except: training_data = {}
 
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    total_users = db.session.execute(text("SELECT COUNT(*) FROM users")).scalar()
+    total_admins = db.session.execute(text("SELECT COUNT(*) FROM users WHERE role = 'admin'")).scalar()
+    total_students = db.session.execute(text("SELECT COUNT(*) FROM users WHERE role = 'student'")).scalar()
 
-    # ✅ Total users, admins, students
-    cursor.execute("SELECT COUNT(*) AS total FROM users")
-    total_users = cursor.fetchone()['total']
-
-    cursor.execute("SELECT COUNT(*) AS total FROM users WHERE role = 'admin'")
-    total_admins = cursor.fetchone()['total']
-
-    cursor.execute("SELECT COUNT(*) AS total FROM users WHERE role = 'student'")
-    total_students = cursor.fetchone()['total']
-
-    # ✅ Strand distribution (only students)
-    cursor.execute("""
-        SELECT strand, COUNT(*) AS count
-        FROM users
-        WHERE role = 'student'
-        GROUP BY strand
-    """)
-    strand_counts = cursor.fetchall()
+    strand_counts = db.session.execute(text("""
+        SELECT strand, COUNT(*) AS count FROM users
+        WHERE role = 'student' GROUP BY strand
+    """)).mappings().all()
 
     strand_distribution = {}
     if total_students > 0:
         for row in strand_counts:
-            strand = row['strand'] if row['strand'] else "Unspecified"
+            strand = row['strand'] or "Unspecified"
             strand_distribution[strand] = round((row['count'] / total_students) * 100, 2)
 
-    # ✅ Load all students
-    cursor.execute("SELECT * FROM users WHERE role = 'student'")
-    users = cursor.fetchall()
+    users = db.session.execute(
+        text("SELECT * FROM users WHERE role = 'student")
+    ).mappings().all()
 
-    # ✅ Group users by strand
-    users_by_strand = {}
-    for user in users:
-        strand = user['strand'] if user['strand'] else "Unspecified"
-        users_by_strand.setdefault(strand, []).append({
-            "full_name": user['full_name'],
-            "email": user['email']
-        })
-
-    # ✅ Load latest login/logout per student
-    cursor.execute("""
-        SELECT u.id AS user_id, u.full_name, u.email, l.login_time, l.logout_time,
-               CASE WHEN l.logout_time IS NULL THEN 1 ELSE 0 END AS is_currently_logged_in
-        FROM users u
-        LEFT JOIN (
-            SELECT user_id, login_time, logout_time
-            FROM user_logs ul1
-            WHERE id = (
-                SELECT id FROM user_logs ul2
-                WHERE ul2.user_id = ul1.user_id
-                ORDER BY login_time DESC
-                LIMIT 1
-            )
-        ) l ON u.id = l.user_id
-        WHERE u.role = 'student'
-        ORDER BY l.login_time DESC
-    """)
-    user_logs = cursor.fetchall()
-
-    cursor.close()
-
-    # ✅ Flashed messages
-    messages = get_flashed_messages(with_categories=True)
-
-    # ✅ Safe URL builder
-    def safe_url_for(endpoint, **kwargs):
-        try:
-            return url_for(endpoint, **kwargs)
-        except BuildError:
-            return "#"
-
-    # ✅ Render template
-    return render_template(
-        'admin_dashboard.html',
+    return render_template("admin_dashboard.html",
         users=users,
-        users_by_strand=users_by_strand,
         question_bank=question_bank,
         training_data=training_data,
-        messages=messages,
-        user_logs=user_logs,
         total_users=total_users,
         total_admins=total_admins,
         total_students=total_students,
         strand_distribution=strand_distribution,
-        safe_url_for=safe_url_for,
         current_user_id=session['user']['id']
     )
 
@@ -1314,33 +1187,21 @@ def edit_profile():
 def logout():
     if 'user' in session:
         user_id = session['user']['id']
-        cursor = mysql.connection.cursor()
-
-        # ✅ Update latest login record where logout_time is still NULL
-        cursor.execute("""
-            UPDATE user_logs 
-            SET logout_time = %s
+        db.session.execute(text("""
+            UPDATE user_logs
+            SET logout_time = :t
             WHERE id = (
-                SELECT id FROM (
-                    SELECT id FROM user_logs 
-                    WHERE user_id = %s AND logout_time IS NULL
-                    ORDER BY login_time DESC 
-                    LIMIT 1
-                ) AS subquery
+                SELECT id FROM user_logs 
+                WHERE user_id = :uid AND logout_time IS NULL
+                ORDER BY login_time DESC LIMIT 1
             )
-        """, (datetime.now(), user_id))
-        mysql.connection.commit()
-        cursor.close()
-
-        # ✅ Clear session
+        """), {"t": datetime.now(), "uid": user_id})
+        db.session.commit()
         session.pop('user', None)
-
     flash('You have been logged out.', 'info')
     return redirect(url_for('index'))
 
 
-
 #Run the app
 if __name__ == "__main__":
-    # Run the Flask app so other devices in your Wi-Fi (like your phone) can access it
     app.run(host="0.0.0.0", port=5000, debug=True)

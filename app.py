@@ -35,19 +35,52 @@ def index():
     is_new_user = session.pop('is_new_user', False)
     return render_template('index.html', user=user, is_new_user=is_new_user, year=datetime.now().year)
 
+from werkzeug.security import generate_password_hash, check_password_hash
+
+# ---- REGISTER ----
+@app.route('/register', methods=['POST'])
+def register():
+    first_name = request.form['first_name'].strip()
+    last_name = request.form['last_name'].strip()
+    email = request.form['email'].strip()
+    password = request.form['password']
+    confirm_password = request.form['confirm_password']
+
+    if password != confirm_password:
+        return redirect(url_for('index', register_alert='password_mismatch'))
+
+    full_name = f"{first_name} {last_name}"
+    hashed_password = generate_password_hash(password)  # securely hash
+
+    account = db.session.execute(
+        text("SELECT * FROM users WHERE email = :email"),
+        {"email": email}
+    ).mappings().first()
+
+    if account:
+        return redirect(url_for('index', register_alert='email_exists'))
+    else:
+        db.session.execute(text("""
+            INSERT INTO users (first_name, last_name, full_name, email, password, profile_completed)
+            VALUES (:fn, :ln, :full, :email, :pw, FALSE)
+        """), {"fn": first_name, "ln": last_name, "full": full_name, "email": email, "pw": hashed_password})
+        db.session.commit()
+        return redirect(url_for('index', register_alert='success'))
+
+
 # ---- LOGIN ----
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form['email']
-        password = hashlib.sha256(request.form['password'].encode()).hexdigest()
+        password = request.form['password']
 
         user = db.session.execute(
             text("SELECT * FROM users WHERE email = :email"),
             {"email": email}
         ).mappings().first()
 
-        if user and user['password'] == password:
+        if user and check_password_hash(user['password'], password):
             session['user'] = {
                 'id': user['id'],
                 'email': user['email'],
@@ -93,35 +126,6 @@ def login():
             return redirect(url_for('index', alert='login_failed'))
     return redirect(url_for('index'))
 
-# ---- REGISTER ----
-@app.route('/register', methods=['POST'])
-def register():
-    first_name = request.form['first_name'].strip()
-    last_name = request.form['last_name'].strip()
-    email = request.form['email'].strip()
-    password = request.form['password']
-    confirm_password = request.form['confirm_password']
-
-    if password != confirm_password:
-        return redirect(url_for('index', register_alert='password_mismatch'))
-
-    full_name = f"{first_name} {last_name}"
-    hashed_password = hashlib.sha256(password.encode()).hexdigest()
-
-    account = db.session.execute(
-        text("SELECT * FROM users WHERE email = :email"),
-        {"email": email}
-    ).mappings().first()
-
-    if account:
-        return redirect(url_for('index', register_alert='email_exists'))
-    else:
-        db.session.execute(text("""
-            INSERT INTO users (first_name, last_name, full_name, email, password, profile_completed)
-            VALUES (:fn, :ln, :full, :email, :pw, FALSE)
-        """), {"fn": first_name, "ln": last_name, "full": full_name, "email": email, "pw": hashed_password})
-        db.session.commit()
-        return redirect(url_for('index', register_alert='success'))
 
 # ---- Complete Profile ----
 @app.route('/complete_profile', methods=['GET', 'POST'])

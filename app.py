@@ -9,11 +9,10 @@ import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sqlalchemy import text
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.routing import BuildError
 
 # Flask app
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Make this a secure random string in production
+app.secret_key = os.environ.get('SECRET_KEY', 'super_secret_key')
 
 # ✅ Database config for Render PostgreSQL
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
@@ -29,6 +28,12 @@ def format_datetime(value):
     except:
         return value
 
+@app.template_filter('todatetime')
+def to_datetime(value):
+    try:
+        return datetime.strptime(value, "%Y-%m-%d %H:%M")
+    except:
+        return value
 
 # ---- Home Page ----
 @app.route('/')
@@ -125,8 +130,7 @@ def register():
         db.session.commit()
         return redirect(url_for('index', register_alert='success'))
 
-
-#profile test
+# ---- Complete Profile ----
 @app.route('/complete_profile', methods=['GET', 'POST'])
 def complete_profile():
     if 'user' not in session:
@@ -158,7 +162,6 @@ def complete_profile():
 
     return render_template('complete_profile.html', user=session['user'])
 
-# Dashboard Page
 # ---- Dashboard ----
 @app.route('/dashboard')
 def dashboard():
@@ -169,12 +172,11 @@ def dashboard():
         return redirect(url_for('complete_profile'))
     return render_template('dashboard.html', user=user)
 
-# --- KNOWLEDGE TEST ---
+# --- Knowledge Test ---
 @app.route('/course_test/knowledge', methods=['GET', 'POST'])
 def course_test_knowledge():
     if 'user' not in session:
         return redirect(url_for('login'))
-
     user = session['user']
     strand = user['strand'].lower()
     question_bank = load_questions()
@@ -182,10 +184,9 @@ def course_test_knowledge():
     knowledge_questions = strand_data.get('knowledge', [])
 
     if request.method == 'POST':
-        submitted = request.form.to_dict()  # { "q101": "A", "q102": "B", ... }
+        submitted = request.form.to_dict()
         answers = {}
         correct_count = 0
-
         for q in knowledge_questions:
             qid = str(q["id"])
             user_answer = submitted.get(f"q{qid}")
@@ -193,25 +194,16 @@ def course_test_knowledge():
                 answers[qid] = user_answer.upper()
                 if user_answer.upper() == q.get("answer"):
                     correct_count += 1
-
-        # Save to session
         session['knowledge_answers'] = answers
         session['knowledge_score'] = correct_count
         session['knowledge_total'] = len(knowledge_questions)
         return redirect(url_for('course_test_interest'))
 
-    # Pick 30 random questions
     random.shuffle(knowledge_questions)
     knowledge_questions = knowledge_questions[:30]
+    return render_template('course_test_knowledge.html', knowledge_questions=knowledge_questions, user=user)
 
-    return render_template(
-        'course_test_knowledge.html',
-        knowledge_questions=knowledge_questions,
-        user=user
-    )
-
-
-# --- INTEREST TEST ---
+# --- Interest Test ---
 @app.route('/course_test/interest', methods=['GET', 'POST'])
 def course_test_interest():
     if 'user' not in session:
@@ -220,18 +212,13 @@ def course_test_interest():
     user = session['user']
     strand = user['strand'].lower()
 
-    # Load interest bank
     with open('interest_bank.json', 'r') as f:
         interest_bank = json.load(f)
 
     strand_data = interest_bank.get(strand, {}).get("interest", [])
-
-    # Group questions by course
     course_map = {}
     for q in strand_data:
         course_map.setdefault(q["course"], []).append(q)
-
-    # Select exactly 1 random question per course
     strand_questions = [random.choice(q_list) for q_list in course_map.values()]
 
     if request.method == 'POST':
@@ -239,19 +226,13 @@ def course_test_interest():
         for q in strand_questions:
             ans = request.form.get(f"q_{q['id']}")
             if ans:
-                answers[q["course"]] = int(ans)  # save as numeric 1–5
-
+                answers[q["course"]] = int(ans)
         session['interest_scores'] = answers
         return redirect(url_for('course_test_aptitude'))
 
-    return render_template(
-        'course_test_interest.html',
-        strand=strand.capitalize(),
-        questions=strand_questions
-    )
+    return render_template('course_test_interest.html', strand=strand.capitalize(), questions=strand_questions)
 
-
-# --- APTITUDE TEST ---
+# --- Aptitude Test ---
 @app.route('/course_test/aptitude', methods=['GET', 'POST'])
 def course_test_aptitude():
     if 'user' not in session:
@@ -260,39 +241,25 @@ def course_test_aptitude():
     user = session['user']
     strand = user['strand'].lower()
 
-    # Load aptitude questions from separate file
     aptitude_bank = load_questions("aptitude_bank.json")
-    strand_data = aptitude_bank.get(strand, {})
-    all_questions = strand_data.get("aptitude", [])
-
-    # Pick only 5 random questions
-    import random
+    all_questions = aptitude_bank.get(strand, {}).get("aptitude", [])
     selected_questions = random.sample(all_questions, min(5, len(all_questions)))
 
     if request.method == 'POST':
         submitted = request.form.to_dict()
         correct_count = 0
-
-        # Check only from selected questions
         for q in selected_questions:
             qid = str(q["id"])
             user_answer = submitted.get(f"q{qid}")
             if user_answer and user_answer.upper() == q.get("answer"):
                 correct_count += 1
-
-        # Save score in session
         session['aptitude_score'] = correct_count
         session['aptitude_total'] = len(selected_questions)
         return redirect(url_for('course_test_personality'))
 
-    return render_template(
-        'course_test_aptitude.html',
-        aptitude_questions=selected_questions,
-        user=user
-    )
+    return render_template('course_test_aptitude.html', aptitude_questions=selected_questions, user=user)
 
-
-# --- PERSONALITY TEST ---
+# --- Personality Test ---
 @app.route('/course_test/personality', methods=['GET', 'POST'])
 def course_test_personality():
     if 'user' not in session:
@@ -301,14 +268,10 @@ def course_test_personality():
     user = session['user']
     strand = user['strand'].lower()
 
-    # Load personality questions from JSON
     with open("personality_bank.json", "r") as f:
         personality_bank = json.load(f)
 
-    # Get strand-specific questions (default empty list if not found)
     all_questions = personality_bank.get(strand, {}).get("personality", [])
-
-    # Randomly pick 5 unique questions
     questions = random.sample(all_questions, min(5, len(all_questions)))
 
     if request.method == 'POST':
@@ -317,8 +280,7 @@ def course_test_personality():
 
     return render_template("course_test_personality.html", questions=questions, user=user)
 
-
-# ---GOAL TEST ---
+# --- Goal Test ---
 @app.route('/course_test/goal', methods=['GET', 'POST'])
 def course_test_goal():
     if 'user' not in session:
@@ -327,11 +289,9 @@ def course_test_goal():
     user = session['user']
     strand = user['strand'].lower()
 
-    # Load goal_bank.json
     with open("goal_bank.json", "r") as f:
         goal_bank = json.load(f)
 
-    # Pick 5 random goals from the user's strand
     all_goals = goal_bank.get(strand, [])
     selected_goals = random.sample(all_goals, min(5, len(all_goals)))
 
@@ -340,7 +300,6 @@ def course_test_goal():
         return redirect(url_for('show_result'))
 
     return render_template("course_test_goal.html", goals=selected_goals, user=user)
-
 
 
 # test submit
@@ -1192,4 +1151,4 @@ def logout():
 
 #Run the app
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)

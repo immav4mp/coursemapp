@@ -28,13 +28,6 @@ def format_datetime(value):
     except:
         return value
 
-@app.template_filter('todatetime')
-def to_datetime(value):
-    try:
-        return datetime.strptime(value, "%Y-%m-%d %H:%M")
-    except:
-        return value
-
 # ---- Home Page ----
 @app.route('/')
 def index():
@@ -870,7 +863,7 @@ def delete_selected(entity):
         data = load_questions()
         strand = request.form.get('strand')
         category = request.form.get('category')
-        if strand and category:
+        if strand and category and strand in data and category in data[strand]:
             before = len(data[strand][category])
             data[strand][category] = [
                 q for q in data[strand][category] if str(q["id"]) not in selected
@@ -878,25 +871,26 @@ def delete_selected(entity):
             deleted = before - len(data[strand][category])
             save_questions(data)
 
-    # --- Users (MySQL DB) ---
+    # --- Users (PostgreSQL via SQLAlchemy) ---
     elif entity == "users":
-        cursor = mysql.connection.cursor()
-        format_strings = ','.join(['%s'] * len(selected))
-        query = f"DELETE FROM users WHERE id IN ({format_strings})"
-        cursor.execute(query, tuple(selected))
-        mysql.connection.commit()
-        deleted = cursor.rowcount
-        cursor.close()
+        ids = [int(uid) for uid in selected]
+        result = db.session.execute(
+            text("DELETE FROM users WHERE id = ANY(:ids)"),
+            {"ids": ids}
+        )
+        db.session.commit()
+        deleted = len(ids)
 
     # --- Training Data (JSON) ---
     elif entity == "training":
         strand = request.form.get('strand')
         data = load_training_data()
-        indexes = set(map(int, selected))
-        before = len(data[strand])
-        data[strand] = [entry for i, entry in enumerate(data[strand]) if i not in indexes]
-        deleted = before - len(data[strand])
-        save_training_data(data)
+        if strand in data:
+            indexes = set(map(int, selected))
+            before = len(data[strand])
+            data[strand] = [entry for i, entry in enumerate(data[strand]) if i not in indexes]
+            deleted = before - len(data[strand])
+            save_training_data(data)
 
     else:
         flash("⚠️ Invalid entity type.", "danger")
@@ -961,13 +955,13 @@ def delete_users():
 @app.route('/delete_user/<int:user_id>', methods=['GET'])
 def delete_user(user_id):
     db.session.execute(
-    text("DELETE FROM users WHERE id = :uid"),
-    {"uid": user_id}
-)
-db.session.commit()
-
+        text("DELETE FROM users WHERE id = :uid"),
+        {"uid": user_id}
+    )
+    db.session.commit()
     flash('User deleted successfully.', 'success')
     return redirect(url_for('admin_dashboard'))
+
 
 
 
@@ -1082,50 +1076,41 @@ def edit_profile():
     user = session['user']
 
     if request.method == 'POST':
-        # Get form data
-        full_name = request.form.get('full_name', '').strip()
-        email = request.form.get('email', '').strip()
+        full_name = request.form.get('full_name', '').strip() or user.get('full_name', '')
+        email = request.form.get('email', '').strip() or user.get('email', '')
         password = request.form.get('password', '').strip()
 
-        # Keep existing values if field is blank
-        if not full_name:
-            full_name = user.get('full_name', '')
-        if not email:
-            email = user.get('email', '')
-
-        # Handle password (hash only if provided, else keep existing)
         if password:
-    hashed_password = generate_password_hash(password)
-else:
-    db_user = db.session.execute(
-        text("SELECT password FROM users WHERE id = :uid"),
-        {"uid": user['id']}
-    ).mappings().first()
-    hashed_password = db_user['password'] if db_user else ''
+            hashed_password = generate_password_hash(password)
+        else:
+            db_user = db.session.execute(
+                text("SELECT password FROM users WHERE id = :uid"),
+                {"uid": user['id']}
+            ).mappings().first()
+            hashed_password = db_user['password'] if db_user else ''
 
+        db.session.execute(text("""
+            UPDATE users 
+            SET full_name = :fn, email = :em, password = :pw
+            WHERE id = :uid
+        """), {"fn": full_name, "em": email, "pw": hashed_password, "uid": user['id']})
+        db.session.commit()
 
-db.session.execute(text("""
-    UPDATE users 
-    SET full_name = :fn, email = :em, password = :pw
-    WHERE id = :uid
-"""), {"fn": full_name, "em": email, "pw": hashed_password, "uid": user['id']})
-db.session.commit()
-
-
-        # Update session data
+        # Update session
         user.update({
             'full_name': full_name,
             'email': email,
         })
         session['user'] = user
 
+        flash("✅ Profile updated successfully!", "success")
         return redirect(url_for('index'))
 
-    # Build full_name if empty from first_name + last_name
     if not user.get('full_name'):
         user['full_name'] = f"{user.get('first_name', '')} {user.get('last_name', '')}".strip()
 
     return render_template('edit_profile.html', user=user)
+
 
 
 

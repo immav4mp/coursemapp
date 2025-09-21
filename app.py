@@ -992,14 +992,15 @@ def add_training_data():
 
     return render_template('add_training_data.html')
 
-
 # --- EDIT TRAINING DATA ---
 @app.route('/admin/training_data/edit/<strand>/<int:index>', methods=['GET', 'POST'])
 def edit_training_data(strand, index):
+    if 'user' not in session or session['user'].get('role') != 'admin':
+        return redirect(url_for('login'))
+
     data = load_training_data()
     strand = strand.lower()
 
-    # Protect against out-of-range
     if strand not in data or index >= len(data[strand]):
         flash("⚠️ Training data not found.", "error")
         return redirect(url_for('admin_dashboard'))
@@ -1007,14 +1008,54 @@ def edit_training_data(strand, index):
     entry = data[strand][index]
 
     if request.method == 'POST':
-        entry['course'] = request.form['course']
-        entry['features'] = [f.strip() for f in request.form['features'].split(',')]
+        course = request.form['course']
+        try:
+            features = [float(f.strip()) for f in request.form['features'].split(',')]
+        except ValueError:
+            flash("⚠️ Features must be numeric values separated by commas.", "danger")
+            return redirect(url_for('admin_dashboard'))
+
+        entry['course'] = course
+        entry['features'] = features
 
         save_training_data(data)
         flash("✏️ Training data updated successfully!", "success")
         return redirect(url_for('admin_dashboard'))
 
-    return render_template('edit_training_data.html', strand=strand, index=index, entry=entry)
+    # For GET → show current values
+    features_str = ",".join(map(str, entry.get('features', [])))
+    return render_template('edit_training_data.html', strand=strand, index=index, entry=entry, features_str=features_str)
+
+
+
+@app.route('/admin/training_data/add', methods=['GET', 'POST'])
+def add_training_data():
+    if request.method == 'POST':
+        strand = request.form['strand'].lower()
+        course = request.form['course']
+
+        # Convert features to float
+        try:
+            features = [float(f.strip()) for f in request.form['features'].split(',')]
+        except ValueError:
+            flash("⚠️ Features must be numeric values separated by commas.", "danger")
+            return redirect(url_for('admin_dashboard'))
+
+        training_data = load_training_data()
+        if strand not in training_data:
+            training_data[strand] = []
+
+        training_data[strand].append({
+            'course': course,
+            'features': features
+        })
+
+        save_training_data(training_data)
+        flash("✅ Training data added successfully!", "success")
+        return redirect(url_for('admin_dashboard'))
+
+    return render_template('add_training_data.html')
+
 
 
 # --- DELETE TRAINING DATA (Single) ---

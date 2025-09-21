@@ -29,12 +29,6 @@ def format_datetime(value):
     except:
         return value
 
-@app.template_filter('todatetime')
-def to_datetime(value):
-    try:
-        return datetime.strptime(value, "%Y-%m-%d %H:%M")
-    except:
-        return value
 
 # ---- Home Page ----
 @app.route('/')
@@ -872,7 +866,7 @@ def edit_question(qid):
 
 
 # --- DELETE QUESTION ---
-@app.route('/admin/question/delete/<qid>')   # ✅ treat ID as string
+@app.route('/admin/question/delete/<qid>')
 def delete_question(qid):
     if 'user' not in session or session['user'].get('role') != 'admin':
         return redirect(url_for('login'))
@@ -883,7 +877,7 @@ def delete_question(qid):
     for strand in data:
         for category in data[strand]:
             original_len = len(data[strand][category])
-            # ✅ Compare as string, since JSON IDs are strings
+            # ✅ This line is here
             data[strand][category] = [q for q in data[strand][category] if str(q["id"]) != str(qid)]
             if len(data[strand][category]) < original_len:
                 found = True
@@ -963,51 +957,45 @@ import hashlib
 # --- Edit Users ---
 @app.route('/edit_user/<int:user_id>', methods=['GET', 'POST'])
 def edit_user(user_id):
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if request.method == 'POST':
+        new_password = request.form['new_password']
+        hashed_password = hashlib.sha256(new_password.encode()).hexdigest()
 
-   if request.method == 'POST':
-    new_password = request.form['new_password']
-    hashed_password = hashlib.sha256(new_password.encode()).hexdigest()
-
-    db.session.execute(text("""
-        UPDATE users
-        SET password = :pw
-        WHERE id = :uid
-    """), {"pw": hashed_password, "uid": user_id})
-    db.session.commit()
-
-    flash('Password updated successfully.', 'success')
-    return redirect(url_for('admin_dashboard'))
-else:
-    user = db.session.execute(
-        text("SELECT * FROM users WHERE id = :uid"),
-        {"uid": user_id}
-    ).mappings().first()
-
-    if not user:
-        flash("User not found.", "error")
+        db.session.execute(text("""
+            UPDATE users SET password = :pw WHERE id = :uid
+        """), {"pw": hashed_password, "uid": user_id})
+        db.session.commit()
+        flash('Password updated successfully.', 'success')
         return redirect(url_for('admin_dashboard'))
+    else:
+        user = db.session.execute(
+            text("SELECT * FROM users WHERE id = :uid"),
+            {"uid": user_id}
+        ).mappings().first()
+        if not user:
+            flash("User not found.", "error")
+            return redirect(url_for('admin_dashboard'))
+        return render_template('edit_user.html', user=user)
 
-    return render_template('edit_user.html', user=user)
 
 
 
 
 @app.route('/delete_users', methods=['POST'])
 def delete_users():
-    selected_users = request.form.getlist('selected_users')  # list of IDs from checkboxes
+    selected_users = request.form.getlist('selected_users')
     if not selected_users:
         flash('No users selected.', 'warning')
         return redirect(url_for('admin_dashboard'))
 
-   ids = [int(uid) for uid in selected_users]
-db.session.execute(
-    text("DELETE FROM users WHERE id = ANY(:ids)"),
-    {"ids": ids}
-)
-db.session.commit()
+    # Convert to integers
+    ids = [int(uid) for uid in selected_users]
 
-
+    db.session.execute(
+        text("DELETE FROM users WHERE id = ANY(:ids)"),
+        {"ids": ids}
+    )
+    db.session.commit()
     flash(f'{len(selected_users)} user(s) deleted successfully.', 'success')
     return redirect(url_for('admin_dashboard'))
 
@@ -1148,9 +1136,6 @@ def edit_profile():
 
         # Handle password (hash only if provided, else keep existing)
         if password:
-            hashed_password = generate_password_hash(password)
-        else:
-           if password:
     hashed_password = generate_password_hash(password)
 else:
     db_user = db.session.execute(
@@ -1158,6 +1143,7 @@ else:
         {"uid": user['id']}
     ).mappings().first()
     hashed_password = db_user['password'] if db_user else ''
+
 
 db.session.execute(text("""
     UPDATE users 
